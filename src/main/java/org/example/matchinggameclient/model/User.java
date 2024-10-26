@@ -42,6 +42,13 @@ public class User {
         this.isPlaying = isPlaying;
     }
 
+    public User(int ID, String username, int star, boolean isOnline) {
+        this.ID = ID;
+        this.username = username;
+        this.star = star;
+        this.isOnline = isOnline;
+    }
+
     public User(int ID, String username, int numberOfGame, int numberOfWin, int numberOfDraw, boolean isOnline, boolean isPlaying, int star, int rank) {
         this.ID = ID;
         this.username = username;
@@ -53,6 +60,7 @@ public class User {
         this.star = star;
         this.rank = rank;
     }
+
 
     public int getID() {
         return ID;

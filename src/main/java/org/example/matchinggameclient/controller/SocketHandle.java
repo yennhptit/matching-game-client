@@ -13,6 +13,8 @@ public class SocketHandle implements Runnable {
     public SocketHandle(MessageHandler messageHandler) {
         this.messageHandler = messageHandler; // Initialize the message handler
     }
+    public SocketHandle() {
+    }
 
     @Override
     public void run() {
@@ -32,9 +34,13 @@ public class SocketHandle implements Runnable {
     }
 
     public void write(String message) throws IOException {
-        outputWriter.write(message);
-        outputWriter.newLine();
-        outputWriter.flush();
+        if (outputWriter != null) {
+            outputWriter.write(message);
+            outputWriter.newLine(); // Kết thúc dòng
+            outputWriter.flush(); // Đẩy dữ liệu ra
+        } else {
+            throw new IOException("OutputWriter is not initialized.");
+        }
     }
 
     public Socket getSocketOfClient() {

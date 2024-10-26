@@ -5,35 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10c63515-92fe-4574-9c41-729422387f1f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/MainApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/MessageHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/SignupController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/SocketHandle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/Login.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/Signup.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/back1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/back2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/back3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/back4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/game-background-cartoon-game-design-nature-asset-vector.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/mountains-background-game-vector.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/components/BackgroundPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/components/CustomPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/components/CustomScrollBarUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/components/InvitationRow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/components/UserRow.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/home/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/home/HomeRun.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/home/HomeSocket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/home/HomeView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/img/back1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/img/back2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/img/background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/img/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/img/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/model/Invitation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/back4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/background.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/backhis.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gitignore.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/SocketHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/SocketHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/Signup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/Signup.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,20 +72,22 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
+    "Application.HomeRun.executor": "Run",
     "Application.MainApp.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/caro-game-client",
-    "project.structure.last.edited": "Project",
+    "last_opened_file_path": "E:/matching-game-client/src/main/java/org/example/matchinggameclient/img",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\matching-game-client\src\main\java\org\example\matchinggameclient\img" />
       <recent name="E:\matching-game-client\src\main\resources\org\example\matchinggameclient\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">

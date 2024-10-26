@@ -67,17 +67,17 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Text>
-      <Button fx:id="loginBtn" layoutX="438.0" layoutY="416.0" mnemonicParsing="false" onAction="#handleLoginBtn" prefHeight="51.0" prefWidth="377.0" text="Đăng nhập" textFill="#000000cc">
+      <Button fx:id="loginBtn" layoutX="438.0" layoutY="416.0" mnemonicParsing="false" onAction="#handleLoginBtn" prefHeight="51.0" prefWidth="377.0" text="Login" textFill="#000000cc">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Button>
-        <Label layoutX="435.0" layoutY="491.0" prefHeight="51.0" prefWidth="224.0" text="Bạn chưa có tài khoản?">
+        <Label layoutX="435.0" layoutY="491.0" prefHeight="51.0" prefWidth="224.0" text="Don't have an account?">
             <font>
                 <Font size="20.0" />
             </font>
         </Label>
-        <Text fx:id="signupLabel" fill="#ffffffd6" layoutX="659.0" layoutY="526.0" onMouseClicked="#handleSignupLabel" style="-fx-cursor: hand; -fx-font-weight: bold;" text="Đăng ký ngay" underline="true">
+        <Text fx:id="signupLabel" fill="#ffffffd6" layoutX="659.0" layoutY="526.0" onMouseClicked="#handleSignupLabel" style="-fx-cursor: hand; -fx-font-weight: bold;" text="Register now" underline="true">
             <font>
                 <Font size="24.0" />
             </font>
