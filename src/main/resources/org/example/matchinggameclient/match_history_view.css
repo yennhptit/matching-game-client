@@ -1,0 +1,53 @@
+/* Navbar styling */
+.navbar {
+    -fx-background-color: #2e3b4e;
+    -fx-padding: 10;
+    -fx-alignment: center-left;
+}
+
+#userNameLabel, #userStarsLabel {
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+#homeButton, #logoutButton {
+    -fx-background-color: #f0ad4e;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+#homeButton:hover, #logoutButton:hover {
+    -fx-background-color: #d98c34;
+}
+
+/* Table styling for different match results */
+.table-row-cell:filled:selected {
+    -fx-background-color: #1a73e8 !important;
+    -fx-text-fill: white;
+}
+
+.table-row-cell:filled {
+    -fx-background-insets: 0;
+}
+
+.table-row-cell:filled .table-cell {
+    -fx-padding: 5px;
+}
+
+.table-row-cell:filled:focused {
+    -fx-background-color: #cccccc;
+}
+
+.table-row-cell:filled .table-cell:focused {
+    -fx-background-color: transparent;
+}
+
+/* Styling for Win, Lose, and Draw rows */
+.table-row-cell:filled {
+    -fx-background-color: #ffffff;
+}
+
+.table-row-cell:filled:even {
+    -fx-background-color: #f9f9f9;
+}

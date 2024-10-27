@@ -121,10 +121,10 @@ public class LoginController implements MessageHandler {
                         System.err.println("Insufficient data for a User object at index: " + i);
                     }
                 }
-                HomeRun.runHome(client, userList);
-                // Optionally, hide the login window
-                Stage stage = (Stage) statusText.getScene().getWindow();
-                stage.close();
+//                HomeRun.runHome(client, userList);
+//                // Optionally, hide the login window
+//                Stage stage = (Stage) statusText.getScene().getWindow();
+//                stage.close();
             }
             else {
                 System.out.println("Unknown message: " + message);

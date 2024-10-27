@@ -5,35 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10c63515-92fe-4574-9c41-729422387f1f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/components/BackgroundPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/components/CustomPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/components/CustomScrollBarUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/components/InvitationRow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/components/UserRow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/home/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/home/HomeRun.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/home/HomeSocket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/home/HomeView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/img/back1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/img/back2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/img/background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/img/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/img/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/model/Invitation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/back4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/backhis.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/InviteItemController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/MatchHistoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/MockWebSocketClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/TestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/model/MatchHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/Home.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/Test.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/inviteItem.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/match_history_view.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/match_history_view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gitignore.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/SocketHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/SocketHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/Signup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/Signup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/home/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/home/HomeController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +29,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="FxmlFile" />
         <option value="Class" />
       </list>
@@ -76,9 +63,9 @@
     "Application.MainApp.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "update1",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/matching-game-client/src/main/java/org/example/matchinggameclient/img",
+    "last_opened_file_path": "E:/matching-game-client",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -87,14 +74,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\matching-game-client\src\main\java\org\example\matchinggameclient\img" />
       <recent name="E:\matching-game-client\src\main\resources\org\example\matchinggameclient\img" />
+      <recent name="E:\matching-game-client\src\main\java\org\example\matchinggameclient\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\matching-game-client\src\main\resources\org\example\matchinggameclient" />
       <recent name="E:\matching-game-client\src\main\java\org\example\matchinggameclient\img" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.example.matchinggameclient" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.matchinggameclient.controller" />
     </key>
   </component>
   <component name="RunManager" selected="Application.MainApp">
@@ -141,5 +132,16 @@
       <updated>1729762691008</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/home/HomeController.java</url>
+          <line>145</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

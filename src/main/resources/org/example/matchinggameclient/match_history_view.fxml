@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.matchinggameclient.controller.MatchHistoryController" stylesheets="@match_history_view.css" prefWidth="1200" prefHeight="800">
+    <children>
+        <!-- Navbar -->
+        <AnchorPane layoutX="0" layoutY="0" prefHeight="50" prefWidth="1200" styleClass="navbar" >
+            <children>
+                <Label fx:id="userNameLabel" layoutX="10" layoutY="14" text="PlayerName" />
+                <Label fx:id="userStarsLabel" layoutX="110" layoutY="14" text="★ 120" />
+                <Button fx:id="homeButton" layoutX="1000" layoutY="10" text="Home" />
+                <Button fx:id="logoutButton" layoutX="1080" layoutY="10" text="Logout" />
+            </children>
+        </AnchorPane>
+
+        <!-- Main Content in Centered VBox -->
+        <!--        alignment="CENTER"-->
+        <VBox spacing="10" AnchorPane.topAnchor="80" AnchorPane.bottomAnchor="30" AnchorPane.leftAnchor="150" AnchorPane.rightAnchor="150">
+            <HBox spacing="10" alignment="CENTER" >
+                <ComboBox fx:id="filterByComboBox" promptText="Filter By" />
+                <TextField fx:id="searchField" promptText="Search..." />
+            </HBox>
+
+
+            <!-- Table View -->
+            <AnchorPane>
+                <TableView fx:id="matchHistoryTable" prefWidth="960" prefHeight="800" tableMenuButtonVisible="false">
+                    <columns>
+                        <TableColumn fx:id="idColumn" text="ID" prefWidth="100" />
+                        <TableColumn fx:id="userIdColumn" text="User ID" prefWidth="150" />
+                        <TableColumn fx:id="matchIdColumn" text="Match ID" prefWidth="150" />
+                        <TableColumn fx:id="resultColumn" text="Result" prefWidth="150" />
+                        <TableColumn fx:id="pointsEarnedColumn" text="Points Earned" prefWidth="150" />
+                        <TableColumn fx:id="createdAtColumn" text="Created At" prefWidth="200" />
+                    </columns>
+                </TableView>
+            </AnchorPane>
+        </VBox>
+
+        <!-- Pagination Controls at the Bottom -->
+        <HBox fx:id="paginationBox" spacing="5" AnchorPane.leftAnchor="150" AnchorPane.rightAnchor="150" AnchorPane.bottomAnchor="10" alignment="CENTER" />
+    </children>
+</AnchorPane>

@@ -7,5 +7,7 @@ module org.example.matchinggameclient {
 
     opens org.example.matchinggameclient.controller to javafx.fxml;
     exports org.example.matchinggameclient;
+    opens org.example.matchinggameclient.model to javafx.base;
+
 
 }

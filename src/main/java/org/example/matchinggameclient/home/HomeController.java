@@ -117,21 +117,8 @@ public class HomeController implements MessageHandler {
         System.out.println("Message type: " + messageSplit[0]);
 
         if (messageSplit[0].equals("restart")) {
-            Platform.runLater(() -> {
-                try {
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/org/example/matchinggameclient/Login.fxml"));
-                    Parent root = loader.load();
-                    Stage stage = new Stage();
-                    Scene scene = new Scene(root);
-                    stage.setScene(scene);
-                    homeView.dispose();
-                    stage.show();
+            // hien thi Login.fxml
 
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
         } else {
             System.out.println("Unknown message: " + message);
         }
@@ -150,6 +137,23 @@ public class HomeController implements MessageHandler {
                 int id = client.getID();
                 String request = "offline," + id;
                 socketHandle.write(request);
+                homeView.dispose();
+                Platform.runLater(() -> {
+//                    MainApp.closeAllStages();
+
+                    try {
+                        // Tải lại trang đăng nhập
+                        FXMLLoader loader = new FXMLLoader();
+                        loader.setLocation(getClass().getResource("/org/example/matchinggameclient/Login.fxml"));
+                        Parent root = loader.load();
+                        Stage stage = new Stage();
+                        stage.setScene(new Scene(root));
+                        stage.show();
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                });
+
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
