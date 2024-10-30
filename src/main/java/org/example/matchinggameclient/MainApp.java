@@ -15,7 +15,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Tải file FXML
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/matchinggameclient/Test.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/matchinggameclient/Login.fxml"));
         Scene scene = new Scene(loader.load());
 
         // Thiết lập tiêu đề cho cửa sổ

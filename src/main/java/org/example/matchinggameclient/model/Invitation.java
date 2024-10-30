@@ -1,7 +1,6 @@
 package org.example.matchinggameclient.model;
 
 public class Invitation {
-
     private User sender;
 
     public Invitation(User sender)

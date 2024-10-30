@@ -1,11 +1,184 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.matchinggameclient.Home">
-   <children>
-      <BorderPane prefHeight="800.0" prefWidth="1200.0" />
-   </children>
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.matchinggameclient.controller.HomeController">
+   <top>
+      <BorderPane prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: #1b5e47;" BorderPane.alignment="CENTER">
+         <left>
+            <Label fx:id="clientInfoLabel" contentDisplay="CENTER" prefHeight="66.0" prefWidth="486.0" style="-fx-text-fill: #ffffff;" text="Player: player0    Rank: #001    Stars: 100" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets left="20.0" />
+               </BorderPane.margin></Label>
+         </left>
+         <right>
+            <GridPane prefHeight="83.0" prefWidth="242.0" BorderPane.alignment="CENTER">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Button fx:id="clientHistoryButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #ff7f27; -fx-text-fill: #FFFFFF; -fx-background-radius: 10;" text="History" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="clientLogoutButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #c90000; -fx-text-fill: #FFFFFF; -fx-background-radius: 10;" text="Log Out" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </GridPane>
+         </right>
+      </BorderPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #a4c0c4;" BorderPane.alignment="CENTER">
+         <children>
+            <GridPane layoutX="20.0" layoutY="28.0" prefHeight="160.0" prefWidth="849.0" style="-fx-background-color: #648491; -fx-background-radius: 20;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label fx:id="playModeLabel" alignment="CENTER" text="Choose a play mode" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="System Bold Italic" size="30.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="findMatchButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="350.0" style="-fx-background-color: #49d5a5; -fx-background-radius: 15;" text="Find Match" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="practiceButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="350.0" style="-fx-background-color: #49d5a5; -fx-background-radius: 15;" text="Practice" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="cancelButton" mnemonicParsing="false" prefHeight="30.0" prefWidth="350.0" style="-fx-background-color: #c90000; -fx-background-radius: 15;" text="Cancel" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Button>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+               </padding>
+            </GridPane>
+            <AnchorPane layoutX="18.0" layoutY="225.0" prefHeight="500.0" prefWidth="358.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 20; -fx-border-color: #46848d; -fx-border-width: 2; -fx-border-radius: 20;">
+               <children>
+                  <Label layoutX="108.0" layoutY="8.0" text="Chat Server">
+                     <font>
+                        <Font name="System Bold" size="27.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="chatTextField" layoutX="36.0" layoutY="435.0" prefHeight="31.0" prefWidth="223.0" promptText="Type your message" style="-fx-font-size: 15; -fx-background-radius: 5;" />
+                  <ScrollPane layoutX="17.0" layoutY="47.0" prefHeight="378.0" prefWidth="330.0" styleClass="scroll-pane">
+                     <content>
+                        <VBox fx:id="messageContainer" prefHeight="370.0" prefWidth="311.0" styleClass="message-container"/>
+                     </content></ScrollPane>
+                  <Button fx:id="sendButton" defaultButton="true" layoutX="271.0" layoutY="435.0" mnemonicParsing="false" style="-fx-background-color: #40ab86; -fx-background-radius: 8;" text="Send" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="394.0" layoutY="225.0" prefHeight="500.0" prefWidth="475.0" style="-fx-background-radius: 20; -fx-background-color: #648491; -fx-border-width: 2; -fx-border-color: #46848d; -fx-border-radius: 20;">
+               <children>
+                  <Label layoutX="167.0" prefHeight="42.0" prefWidth="137.0" text="Player List" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="27.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="13.0" layoutY="54.0" prefHeight="54.0" prefWidth="443.0" style="-fx-background-color: #f4f4f4; -fx-background-radius: 10;">
+                     <children>
+                        <TextField fx:id="searchTextField" layoutX="110.0" layoutY="14.0" prefHeight="31.0" prefWidth="247.0" promptText="Enter player name or rank" style="-fx-font-size: 15; -fx-background-radius: 5;" />
+                        <ComboBox fx:id="searchFilterComboBox" layoutX="14.0" layoutY="16.0" prefHeight="26.0" prefWidth="82.0" style="-fx-background-radius: 8; -fx-background-color: #49d5a5;" />
+                        <Button fx:id="searchButton" defaultButton="true" layoutX="363.0" layoutY="13.0" mnemonicParsing="false" style="-fx-background-color: #40ab86; -fx-background-radius: 8;" text="Search" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+                  <HBox layoutX="14.0" layoutY="123.0" prefHeight="342.0">
+                     <children>
+                        <ScrollPane style="-fx-background-radius: 10;" vbarPolicy="AS_NEEDED">
+                           <content>
+                              <VBox fx:id="playerListContent" spacing="10.0" style="-fx-background-radius: 10;">
+                                 <padding>
+                                    <Insets left="16.0" right="16.0" />
+                                 </padding></VBox>
+                           </content>
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </ScrollPane>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="922.0" prefHeight="750.0" prefWidth="290.0" style="-fx-background-color: #508161;" AnchorPane.rightAnchor="1.0">
+               <children>
+                  <Label layoutX="68.0" text="INVITATIONS" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="27.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+                  <HBox layoutX="1.0" layoutY="56.0" prefHeight="677.0" prefWidth="294.0">
+                     <children>
+                        <ScrollPane hbarPolicy="NEVER" prefHeight="678.0" prefWidth="272.0" style="-fx-background-radius: 10;">
+                           <content>
+                              <VBox fx:id="invitationsContent" spacing="15.0" style="-fx-background-radius: 10;">
+                                 <padding>
+                                    <Insets left="23.0" right="20.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                           <padding>
+                              <Insets bottom="12.0" top="12.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </ScrollPane>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
