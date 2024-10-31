@@ -142,6 +142,8 @@ public class SocketHandle implements Runnable {
             case "start-match":
             	Platform.runLater(() -> { // Chạy trong luồng FX
                     try {
+                    	homeController.cancelButtonClicked();
+                    	
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/matchinggameclient/Game.fxml"));
                         Parent root = loader.load();
                         GameController controller = loader.getController();

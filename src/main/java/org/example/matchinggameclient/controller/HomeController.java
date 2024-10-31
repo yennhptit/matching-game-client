@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +26,8 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
 import org.example.matchinggameclient.model.Invitation;
 import org.example.matchinggameclient.model.User;
 
@@ -85,6 +89,9 @@ public class HomeController{
     private ArrayList<Invitation> invitationList;
     public ArrayList<User> playerList;
     private String chatServerContent;
+    
+    private int secondsElapsed = 0; // Số giây đã trôi qua
+    private Timeline timer;
 
     @FXML
     private void initialize()
@@ -280,27 +287,61 @@ public class HomeController{
 
     private void findMatchButtonClicked()
     {
-        playModeLabel.setText("Finding match...");
+    	invitationsContent.setVisible(false);
+    	try {
+			socketHandle.write("start-finding-match");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        updateTimerLabel();
+
+        timer = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+            secondsElapsed++;
+            updateTimerLabel();
+        }));
+        
+        timer.setCycleCount(Timeline.INDEFINITE);
+        timer.play();
         cancelButton.setVisible(true);
         findMatchButton.setDisable(true);
         practiceButton.setDisable(true);
     }
 
-    private void practiceButtonClicked()
+    public void practiceButtonClicked()
     {
-        playModeLabel.setText("Start practicing...");
+    	playModeLabel.setText("Start Practicing...");
         cancelButton.setVisible(true);
         findMatchButton.setDisable(true);
         practiceButton.setDisable(true);
     }
 
-    private void cancelButtonClicked()
+    public void cancelButtonClicked()
     {
+    	try {
+			socketHandle.write("cancel-finding-match");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    	invitationsContent.setVisible(true);
+    	if(timer != null)
+    	{    		
+    		timer.pause();
+    	}
+    	secondsElapsed = 0;
         playModeLabel.setText("Choose a play mode");
         cancelButton.setVisible(false);
         findMatchButton.setDisable(false);
         practiceButton.setDisable(false);
     }
+    
+    private void updateTimerLabel() {
+        int minutes = secondsElapsed / 60;
+        int seconds = secondsElapsed % 60;
+
+        // Cập nhật văn bản cho Label theo định dạng HH:MM:SS
+        playModeLabel.setText(String.format("Finding: %02d:%02d", minutes, seconds));
+    }
+    
     public void backToLogin() {
         Platform.runLater(() -> {
             try {
