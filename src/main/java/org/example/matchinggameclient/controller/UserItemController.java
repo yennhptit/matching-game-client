@@ -4,6 +4,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
+
+import java.io.IOException;
+
 import org.example.matchinggameclient.model.User;
 
 public class UserItemController {
@@ -23,10 +26,12 @@ public class UserItemController {
     private Label starsLabel;
 
     private User user;
+    private SocketHandle socketHandle;
 
-    public void init(User user)
+    public void init(User user, SocketHandle socketHandle)
     {
         this.user = user;
+        this.socketHandle = socketHandle;
 
         historyButton.setOnAction(event -> {
             historyButtonClicked();
@@ -54,6 +59,11 @@ public class UserItemController {
     private void inviteButtonClicked()
     {
         System.out.println("Invite " + user.getUsername());
+        try {
+			socketHandle.write("invite," + user.getID());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
     }
 
     public void hideInviteButton()

@@ -157,6 +157,11 @@ public class HomeController{
         updateInvitationList();
 //        updateChatServerContent();
     }
+    
+    public Stage getStage()
+    {
+    	return (Stage) clientInfoLabel.getScene().getWindow();
+    }
 
 
     private void setClient(int id)
@@ -172,6 +177,7 @@ public class HomeController{
                 client.getUsername(), client.getRank(), client.getStar()));
     }
 
+    @FXML
     public void updatePlayerList()
     {
         String searchText = searchTextField.getText();
@@ -199,7 +205,8 @@ public class HomeController{
         }
         return false;
     }
-
+    
+    @FXML
     public void updateInvitationList()
     {
         invitationsContent.getChildren().clear();
@@ -220,7 +227,7 @@ public class HomeController{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/matchinggameclient/UserItem.fxml"));
             GridPane item = loader.load();
             UserItemController controller = loader.getController();
-            controller.init(user);
+            controller.init(user, socketHandle);
             if(user.getID() == client.getID())
             {
                 controller.hideInviteButton();
@@ -238,7 +245,7 @@ public class HomeController{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/matchinggameclient/InvitationItem.fxml"));
             GridPane item = loader.load();
             InvitationItemController controller = loader.getController();
-            controller.init(invitation);
+            controller.init(invitation, socketHandle);
 
             invitationsContent.getChildren().add(item);
 

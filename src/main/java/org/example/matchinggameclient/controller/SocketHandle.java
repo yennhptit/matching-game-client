@@ -3,6 +3,12 @@ package org.example.matchinggameclient.controller;
 import org.example.matchinggameclient.model.Invitation;
 import org.example.matchinggameclient.model.User;
 
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 import javax.swing.*;
 import java.io.*;
 import java.net.Socket;
@@ -106,7 +112,63 @@ public class SocketHandle implements Runnable {
                     request = "update-list";
                 }
                 break;
-
+            case "add-invitation":
+            	int senderID = Integer.parseInt(messageSplit[1]);
+            	for(User sender : userList)
+            	{
+            		if(sender.getID() == senderID)
+            		{
+            			invitations.add(new Invitation(sender));
+            			Platform.runLater(() -> {
+            				homeController.updateInvitationList();
+            			});
+            			break;
+            		}
+            	}
+            	break;
+            case "remove-invitation":
+            	for(Invitation inv : invitations)
+            	{
+            		if(inv.getSenderID() == Integer.parseInt(messageSplit[1]))
+            		{
+            			invitations.remove(inv);
+            			Platform.runLater(() -> {
+            				homeController.updateInvitationList();
+            			});
+            			break;
+            		}
+            	}
+            	break;
+            case "start-match":
+            	Platform.runLater(() -> { // Chạy trong luồng FX
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/matchinggameclient/Game.fxml"));
+                        Parent root = loader.load();
+                        GameController controller = loader.getController();
+                        
+                        int otherUserID = Integer.parseInt(messageSplit[1]);
+                        for(User u : userList)
+                        {
+                        	if(u.getID() == otherUserID)
+                        	{
+                        		controller.setGameLabelText(client.getUsername() 
+                        				+ " vs " + u.getUsername());
+                        	}
+                        }
+                        
+                        // Cập nhật giai điệu và ẩn cảnh hiện tại
+                        Stage stage = homeController.getStage();
+                        stage.setScene(new Scene(root));
+                        stage.setTitle("Memory Game");
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace(); // Xử lý IOException
+                    }
+                });
+            	break;
+            case "invitation-unavailable":
+            	JOptionPane.showMessageDialog(null, "Invitation is unavailable");
+            	break;
             default:
                 System.out.println("Unknown message: " + message);
                 break;
@@ -144,7 +206,7 @@ public class SocketHandle implements Runnable {
                 System.err.println("Insufficient data for a User object at index: " + i);
             }
         }
-        createDummyInvitations(); // Create dummy invitations for testing
+        //createDummyInvitations(); // Create dummy invitations for testing
         if (request.equals("register"))
             signupController.loginToHome(client.getID(), invitations, userList, "");
         else if (request.equals("login"))

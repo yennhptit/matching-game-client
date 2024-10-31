@@ -4,6 +4,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+
+import java.io.IOException;
+
 import org.example.matchinggameclient.model.Invitation;
 
 public class InvitationItemController {
@@ -23,10 +26,12 @@ public class InvitationItemController {
     private Label senderStarsLabel;
 
     private Invitation invitation;
+    private SocketHandle socketHandle;
 
-    public void init(Invitation invitation)
+    public void init(Invitation invitation, SocketHandle socketHandle)
     {
         this.invitation = invitation;
+        this.socketHandle = socketHandle;
 
         acceptButton.setOnAction(event -> {
             acceptButtonClicked();
@@ -44,6 +49,11 @@ public class InvitationItemController {
     private void acceptButtonClicked()
     {
         System.out.println("Accept Invitation of " + invitation.getSenderName());
+        try {
+			socketHandle.write("accept-invitation," + invitation.getSenderID());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
     }
 
     private void declineButtonClicked()
@@ -53,5 +63,10 @@ public class InvitationItemController {
             Pane parent = (Pane) declineButton.getParent().getParent();
             parent.getChildren().remove(declineButton.getParent());
         }
+        try {
+			socketHandle.write("decline-invitation," + invitation.getSenderID());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
     }
 }

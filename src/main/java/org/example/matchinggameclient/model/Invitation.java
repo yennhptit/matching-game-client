@@ -7,6 +7,11 @@ public class Invitation {
     {
         this.sender = sender;
     }
+    
+    public int getSenderID()
+    {
+    	return sender.getID();
+    }
 
     public String getSenderName()
     {
@@ -21,10 +26,5 @@ public class Invitation {
     public int getSenderRank()
     {
         return sender.getRank();
-    }
-
-    public boolean isAvailable()
-    {
-        return sender.isOnline();
     }
 }
