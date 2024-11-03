@@ -11,11 +11,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.event.ActionEvent;
+import org.example.matchinggameclient.model.Card;
 import org.example.matchinggameclient.model.Invitation;
 import org.example.matchinggameclient.model.User;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class LoginController {
 
@@ -108,6 +110,27 @@ public class LoginController {
             }
         });
     }
+//    public void loginToGame(Long matchId, Integer opponentId, String opponentUsername, List<Card> cards){
+//
+//        Platform.runLater(() -> { // Chạy trong luồng FX
+//            try {
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/matchinggameclient/game_view.fxml"));
+//                Parent root = loader.load();
+//                GameController gameController = loader.getController();
+//
+//                gameController.loadData(client, matchId, opponentId, opponentUsername, cards);
+//
+//                // Cập nhật giai điệu và ẩn cảnh hiện tại
+////                Stage stage = (Stage) searchTextField.getScene().getWindow();
+////                stage.setScene(new Scene(root));
+////                stage.setTitle("Memory Game");
+////                stage.show();
+//            } catch (IOException e) {
+//                e.printStackTrace(); // Xử lý IOException
+//            }
+//        });
+//    }
+
 
 
     public void setTextWrongUser() {

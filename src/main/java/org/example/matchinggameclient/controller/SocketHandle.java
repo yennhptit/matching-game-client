@@ -1,5 +1,6 @@
 package org.example.matchinggameclient.controller;
 
+import org.example.matchinggameclient.model.Card;
 import org.example.matchinggameclient.model.Invitation;
 import org.example.matchinggameclient.model.User;
 
@@ -13,6 +14,7 @@ import javax.swing.*;
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.List;
 
 public class SocketHandle implements Runnable {
 
@@ -22,6 +24,7 @@ public class SocketHandle implements Runnable {
     private LoginController loginController;
     private SignupController signupController;
     private HomeController homeController;
+    private GameController gameController;
     public User client = new User();
     public ArrayList<User> userList = new ArrayList<>();
     public final ArrayList<Invitation> invitations = new ArrayList<>();
@@ -61,6 +64,9 @@ public class SocketHandle implements Runnable {
     }
     public void setHomeController(HomeController homeController) {
         this.homeController = homeController; // Set the HomeController
+    }
+    public void setGameController(GameController gameController) {
+        this.gameController = gameController; // Set the HomeController
     }
 
 
@@ -107,7 +113,7 @@ public class SocketHandle implements Runnable {
                 homeController.addMessage(messageSplit[1]);
                 System.out.println(messageSplit[1]);
                 if (messageSplit[1].contains("online") || messageSplit[1].contains("offline")) {
-                    System.out.println("Cập nhâật danh sách người chơi");
+                    System.out.println("Cập nhật danh sách người chơi");
                     write("get-rank-charts");
                     request = "update-list";
                 }
@@ -139,25 +145,33 @@ public class SocketHandle implements Runnable {
             		}
             	}
             	break;
-            case "start-match":
+            case "invitation-unavailable":
+                JOptionPane.showMessageDialog(null, "Invitation is unavailable");
+                break;
+            case "get-card":
             	Platform.runLater(() -> { // Chạy trong luồng FX
                     try {
                     	homeController.cancelButtonClicked();
-                    	
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/matchinggameclient/Game.fxml"));
+
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/matchinggameclient/game_view.fxml"));
                         Parent root = loader.load();
                         GameController controller = loader.getController();
-                        
-                        int otherUserID = Integer.parseInt(messageSplit[1]);
+
+                        Long matchId = Long.parseLong(messageSplit[1]);
+                        int otherUserID = Integer.parseInt(messageSplit[2]);
+                        Integer opponentID = null;
+                        String opponentUsername = null;
                         for(User u : userList)
                         {
                         	if(u.getID() == otherUserID)
                         	{
-                        		controller.setGameLabelText(client.getUsername() 
-                        				+ " vs " + u.getUsername());
+//                        		controller.setGameLabelText(client.getUsername()
+//                        				+ " vs " + u.getUsername());
+                                opponentID = u.getID();
+                                opponentUsername = u.getUsername();
                         	}
                         }
-                        
+                        homeController.homeToGame(matchId, opponentID, opponentUsername, getListCard(message), controller);
                         // Cập nhật giai điệu và ẩn cảnh hiện tại
                         Stage stage = homeController.getStage();
                         stage.setScene(new Scene(root));
@@ -168,9 +182,24 @@ public class SocketHandle implements Runnable {
                     }
                 });
             	break;
-            case "invitation-unavailable":
-            	JOptionPane.showMessageDialog(null, "Invitation is unavailable");
-            	break;
+            case "end-match-exit-success":
+                if(client.getID() == Integer.parseInt(messageSplit[1])){
+                    this.request = "game";
+                    write("get-rank-charts");
+                }
+                break;
+            case "get-result":
+                if(Long.parseLong(messageSplit[1]) == gameController.getMatchId()){
+                    gameController.checkFinalScore(messageSplit[4]);
+                }
+                break;
+            case "update-opponent-point":
+                System.out.println(gameController.getMatchId());
+                System.out.println(client.getID());
+                if(Long.parseLong(messageSplit[1]) == gameController.getMatchId() && Integer.parseInt(messageSplit[2]) == client.getID()){
+                    gameController.updateOpponentPoint();
+                }
+                break;
             default:
                 System.out.println("Unknown message: " + message);
                 break;
@@ -216,6 +245,9 @@ public class SocketHandle implements Runnable {
         else if (request.equals("update-list")) {
             homeController.playerList = userList;
             homeController.updatePlayerList();
+        } else if (request.equals("game")){
+            gameController.getTimer().stop();
+            gameController.gameToHome(client.getID(), invitations, userList, "");
         }
 
     }
@@ -234,6 +266,26 @@ public class SocketHandle implements Runnable {
                 Integer.parseInt(messageSplit[index + 8]),
                 Integer.parseInt(messageSplit[index + 9])
         );
+    }
+
+    private List<Card> getListCard(String message) {
+        List<Card> cards = new ArrayList<>();
+        String[] splitStrings = message.split(",");
+
+        for (int i = 4; i < splitStrings.length - 1; i += 2) {
+            // Loại bỏ ký tự không mong muốn, khoảng trắng và xử lý chuỗi hình ảnh
+            String countStr = splitStrings[i].replaceAll("[()]", "").trim();
+            String imageStr = splitStrings[i + 1].replaceAll("[()]", "").trim();
+
+            try {
+                int count = Integer.parseInt(countStr); // Chuyển đổi chuỗi thành số nguyên
+                cards.add(new Card(count, imageStr));
+            } catch (NumberFormatException e) {
+                System.err.println("Invalid number format in: " + countStr);
+                // Bỏ qua mục này nếu không thể parse
+            }
+        }
+        return cards;
     }
 
     // Create dummy invitations for testing purposes

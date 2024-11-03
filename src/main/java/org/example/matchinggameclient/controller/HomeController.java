@@ -28,6 +28,7 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import org.example.matchinggameclient.model.Card;
 import org.example.matchinggameclient.model.Invitation;
 import org.example.matchinggameclient.model.User;
 
@@ -411,5 +412,11 @@ public class HomeController{
         }
     }
 
+    public void homeToGame(Long matchId, Integer opponentId, String opponentUsername, List<Card> cards, GameController controller){
+
+        Platform.runLater(() -> { // Chạy trong luồng FX
+                controller.loadData(client, matchId, opponentId, opponentUsername, cards);
+        });
+    }
 
 }
