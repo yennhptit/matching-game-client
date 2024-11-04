@@ -2,6 +2,7 @@ package org.example.matchinggameclient.controller;
 
 import org.example.matchinggameclient.model.Card;
 import org.example.matchinggameclient.model.Invitation;
+import org.example.matchinggameclient.model.MatchHistory;
 import org.example.matchinggameclient.model.User;
 
 import javafx.application.Platform;
@@ -13,6 +14,7 @@ import javafx.stage.Stage;
 import javax.swing.*;
 import java.io.*;
 import java.net.Socket;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +27,7 @@ public class SocketHandle implements Runnable {
     private SignupController signupController;
     private HomeController homeController;
     private GameController gameController;
+    private MatchHistoryController matchHistoryController;
     public User client = new User();
     public ArrayList<User> userList = new ArrayList<>();
     public final ArrayList<Invitation> invitations = new ArrayList<>();
@@ -67,6 +70,9 @@ public class SocketHandle implements Runnable {
     }
     public void setGameController(GameController gameController) {
         this.gameController = gameController; // Set the HomeController
+    }
+    public void setMatchHistoryController(MatchHistoryController matchHistoryController) {
+        this.matchHistoryController = matchHistoryController; // Set the HomeController
     }
 
 
@@ -200,6 +206,30 @@ public class SocketHandle implements Runnable {
                     gameController.updateOpponentPoint();
                 }
                 break;
+            case "get-history":
+                if(Long.parseLong(messageSplit[1]) == client.getID()) {
+                    Platform.runLater(() -> {
+                        homeController.cancelButtonClicked();
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/matchinggameclient/match_history_view.fxml"));
+                        Parent root = null;
+                        try {
+                            root = loader.load();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                        MatchHistoryController controller = loader.getController();
+
+                        homeController.homeToHistory(getHistory(messageSplit), controller);
+                        Stage stage = homeController.getStage();
+                        stage.setScene(new Scene(root));
+                        stage.setTitle("Memory Game");
+                        stage.show();
+                    });
+                }
+                break;
+            case "home-to-history-success":
+                this.request = "history";
+                write("get-rank-charts");
             default:
                 System.out.println("Unknown message: " + message);
                 break;
@@ -248,6 +278,8 @@ public class SocketHandle implements Runnable {
         } else if (request.equals("game")){
             gameController.getTimer().stop();
             gameController.gameToHome(client.getID(), invitations, userList, "");
+        } else if (request.equals("history")){
+            matchHistoryController.historyToHome(client.getID(), invitations, userList, "");
         }
 
     }
@@ -288,6 +320,32 @@ public class SocketHandle implements Runnable {
         return cards;
     }
 
+    private List<MatchHistory> getHistory(String[] messageSplit) {
+        List<MatchHistory> matchHistories = new ArrayList<>();
+
+        if (messageSplit.length < 3) {
+            return matchHistories; // Return an empty list if there is no history data
+        }
+
+        String matchHistoryStr = messageSplit[2];
+
+        for (int i = 2; i < messageSplit.length; i+=5) {
+            try {
+                Integer userId = Integer.parseInt(messageSplit[i+1].replaceAll("[()]", "").trim());
+                Long matchId = Long.parseLong(messageSplit[i].replaceAll("[()]", "").trim());
+                String result = messageSplit[i+2].replaceAll("[()]", "").trim();
+                Integer pointsEarned = Integer.parseInt(messageSplit[i+3].replaceAll("[()]", "").trim());
+                LocalDateTime createdAt = LocalDateTime.parse(messageSplit[i+4].replaceAll("[()]", "").trim());
+
+                matchHistories.add(new MatchHistory(userId, matchId, result, pointsEarned, createdAt));
+            } catch (Exception e) {
+                // Handle parsing exceptions (if any)
+                e.printStackTrace();
+            }
+        }
+
+        return matchHistories;
+    }
     // Create dummy invitations for testing purposes
     private void createDummyInvitations() {
         for (int i = 0; i < 12; i++) {

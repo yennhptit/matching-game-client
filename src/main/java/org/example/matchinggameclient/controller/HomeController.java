@@ -30,6 +30,7 @@ import javafx.util.Duration;
 
 import org.example.matchinggameclient.model.Card;
 import org.example.matchinggameclient.model.Invitation;
+import org.example.matchinggameclient.model.MatchHistory;
 import org.example.matchinggameclient.model.User;
 
 public class HomeController{
@@ -118,7 +119,11 @@ public class HomeController{
         });
 
         clientHistoryButton.setOnAction(event -> {
-            clientHistoryButtonClicked();
+            try {
+                clientHistoryButtonClicked();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
 
         clientLogoutButton.setOnAction(event -> {
@@ -273,9 +278,9 @@ public class HomeController{
     }
 
 
-    private void clientHistoryButtonClicked()
-    {
+    private void clientHistoryButtonClicked() throws IOException {
         System.out.println("Show client history");
+        socketHandle.write("show-histoy," + client.getID());
     }
 
     private void sendButtonClicked() throws IOException {
@@ -419,4 +424,10 @@ public class HomeController{
         });
     }
 
+    public void homeToHistory(List<MatchHistory> matchHistories, MatchHistoryController controller){
+
+        Platform.runLater(() -> { // Chạy trong luồng FX
+            controller.loadData(matchHistories);
+        });
+    }
 }

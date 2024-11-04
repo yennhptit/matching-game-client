@@ -5,18 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10c63515-92fe-4574-9c41-729422387f1f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/model/Card.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/game_view.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/game_view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/back.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/MatchHistoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/model/MatchHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/match_history_view.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/match_history_view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/SocketHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/SocketHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/Game.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/game_view.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/game_view.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/game_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/game_view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +92,7 @@
       <recent name="org.example.matchinggameclient.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainApp">
+  <component name="RunManager" selected="Application.Unnamed">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.matchinggameclient.HelloApplication" />
       <module name="matching-game-client" />
@@ -158,7 +155,11 @@
       <option name="presentableId" value="Default" />
       <updated>1729762691008</updated>
       <workItem from="1730549791585" duration="36612000" />
-      <workItem from="1730631801189" duration="30440000" />
+      <workItem from="1730631801189" duration="30891000" />
+      <workItem from="1730699484921" duration="659000" />
+      <workItem from="1730702396832" duration="55000" />
+      <workItem from="1730718183001" duration="6411000" />
+      <workItem from="1730736641102" duration="6025000" />
     </task>
     <servers />
   </component>
