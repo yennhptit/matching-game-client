@@ -1,5 +1,7 @@
 package org.example.matchinggameclient.model;
 
+import java.util.ArrayList;
+
 public class User {
     private int ID;
     private String username;
@@ -156,6 +158,15 @@ public class User {
                 ", star=" + star +
                 ", rank=" + rank +
                 '}';
+    }
+    // get user from id
+    public User getUserFromID(ArrayList<User> users, int id) {
+        for (User user : users) {
+            if (user.getID() == id) {
+                return user; // Return the user if found
+            }
+        }
+        return null; // Return null if no user found
     }
 }
 

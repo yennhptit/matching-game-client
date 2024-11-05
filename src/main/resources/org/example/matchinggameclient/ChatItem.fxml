@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<HBox fx:id="chatItemHBox" alignment="CENTER_LEFT" prefHeight="58.0" prefWidth="333.0" styleClass="gray-background" stylesheets="@chatting-style.css" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.matchinggameclient.controller.ChatItemController">
+   <children>
+      <ImageView fitHeight="42.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" styleClass="radius">
+         <image>
+            <Image url="@img/9-anh-dai-dien-trang-inkythuatso-03-15-27-03.jpg" />
+         </image>
+         <HBox.margin>
+            <Insets left="10.0" />
+         </HBox.margin>
+      </ImageView>
+      <Pane prefHeight="58.0" prefWidth="12.0">
+         <children>
+            <Circle fx:id="onlineStatus" fill="#50c984" layoutY="51.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+         </children>
+      </Pane>
+      <VBox prefHeight="58.0" prefWidth="270.0">
+         <children>
+            <Label fx:id="username" prefHeight="31.0" prefWidth="263.0" text="Abc" textFill="#f8f6f6">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <Label fx:id="latestMess" prefHeight="23.0" prefWidth="267.0" text="" textFill="#f8f6f6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</HBox>

@@ -9,11 +9,14 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+//        clearFile();
         // Tải file FXML
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/matchinggameclient/Login.fxml"));
         Scene scene = new Scene(loader.load());
@@ -30,6 +33,13 @@ public class MainApp extends Application {
 
         primaryStage.show();
     }
+//    public void clearFile() {
+//        try (FileWriter writer = new FileWriter("src/main/java/org/example/matchinggameclient/data/servermess.txt", false)) {
+//            writer.write(""); // Ghi một chuỗi rỗng để xóa nội dung file
+//        } catch (IOException e) {
+//            e.printStackTrace(); // Xử lý ngoại lệ nếu có lỗi
+//        }
+//    }
 
     public static void main(String[] args) {
         launch(args);

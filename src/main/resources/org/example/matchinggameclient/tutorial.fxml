@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.matchinggameclient.controller.TutorialController">
+   <children>
+      <ImageView fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true">
+         <image>
+            <Image url="@img/back1.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="262.0" layoutY="35.0" prefHeight="59.0" prefWidth="676.0" text="Welcome to Memory Game">
+         <font>
+            <Font name=".VnBodoni" size="45.0" />
+         </font>
+      </Label>
+      <Pane fx:id="pane1" layoutX="111.0" layoutY="148.0" prefHeight="555.0" prefWidth="978.0" visible="false">
+         <children>
+            <ImageView fitHeight="555.0" fitWidth="978.0" pickOnBounds="true">
+               <image>
+                  <Image url="@img/back4.jpg" />
+               </image>
+            </ImageView>
+            <VBox prefHeight="555.0" prefWidth="978.0" spacing="10.0">
+               <padding>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1. Game Communication Features" wrappingWidth="828.13671875">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Stay connected with other players through the following features:" wrappingWidth="718.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Player Status Notifications" wrappingWidth="718.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Receive alerts when players come online or go offline, helping you stay updated on friends’ availability." wrappingWidth="785.45458984375">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Chat Notifications" wrappingWidth="718.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Get real-time notifications for messages from other players, ensuring you never miss important conversations." wrappingWidth="785.45458984375">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sending Messages">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type your message in the chat box and hit send to share it instantly with all active players. You can also send images, and all messages are stored on the server for future reference." wrappingWidth="925.45458984375">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="2. Player Invitation" wrappingWidth="828.13671875">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You can only invite a player if they are currently online. When you click the Invite button, a request will be sent to the player. If they accept the invitation, the game will start. If they decline, the invitation will be rejected." wrappingWidth="953.8291015625">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Please note that the invitation will automatically disappear after 30 seconds if the player does not respond." wrappingWidth="953.8291015625">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="3. Chatting Tutorial" wrappingWidth="828.13671875">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Players can send text messages and images to other players in real-time. To chat, simply type your message in the chat box and hit send. You can also upload images to share with your friends." wrappingWidth="953.8291015625">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="All messages and images will be stored on the server, allowing players to view the chat history anytime. This feature helps you stay connected and engaged with your fellow players throughout your gaming experience!" wrappingWidth="953.8291015625">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <ImageView fx:id="nextBtn" fitHeight="50.0" fitWidth="50.0" layoutX="1127.0" layoutY="431.0" smooth="false">
+         <image>
+            <Image url="@img/next.png" />
+         </image>
+      </ImageView>
+         <ImageView fx:id="backBtn" fitHeight="50.0" fitWidth="50.0" layoutX="28.0" layoutY="431.0" smooth="false">
+             <image>
+                 <Image url="@img/backtn.png" />
+             </image>
+         </ImageView>
+      <ImageView fx:id="homeBtn" fitHeight="50.0" fitWidth="50.0" layoutX="1129.0" layoutY="18.0" smooth="false">
+         <image>
+            <Image url="@img/home.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="pane2" layoutX="111.0" layoutY="154.0" prefHeight="555.0" prefWidth="978.0">
+         <children>
+            <ImageView fitHeight="555.0" fitWidth="978.0" pickOnBounds="true">
+               <image>
+                  <Image url="@img/back4.jpg" />
+               </image>
+            </ImageView>
+            <VBox layoutY="-7.0" prefHeight="555.0" prefWidth="978.0" spacing="10.0">
+               <padding>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="4. Match History" wrappingWidth="828.13671875">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total Matches Played: The total number of games the player has participated in." wrappingWidth="718.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Wins: The number of matches won, showcasing the player’s successes." wrappingWidth="718.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Draws: The number of matches that ended in a tie, reflecting balanced performances." wrappingWidth="718.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Losses: The number of matches lost, offering a complete view of the player’s game history." wrappingWidth="718.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="5. Find Match" wrappingWidth="828.13671875">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="The Find Match feature allows players to quickly pair up with others for a game. By clicking the Find Match button, players can enter a matchmaking queue where they will be automatically matched with opponents of similar skill levels." wrappingWidth="953.8291015625">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="6. Gameplay" wrappingWidth="828.13671875">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="End of Match:" wrappingWidth="953.8291015625">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="- All cards are revealed." wrappingWidth="953.8291015625">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="- A player exits (loses)." wrappingWidth="953.8291015625">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="- Time runs out (if applicable)." wrappingWidth="953.8291015625">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Results:" wrappingWidth="953.8291015625">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="- Higher score wins, earning 2 stars." wrappingWidth="953.8291015625">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="- If tied, each player gets 1 star." wrappingWidth="953.8291015625">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="- If a player exits early, the other wins and gets 2 stars." wrappingWidth="953.8291015625">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+
+   </children>
+</AnchorPane>

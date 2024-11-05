@@ -1,6 +1,8 @@
 package org.example.matchinggameclient.controller;
 
 import java.awt.Insets;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,6 +52,9 @@ public class HomeController{
     private Button clientHistoryButton;
 
     @FXML
+    private Button clientChat;
+
+    @FXML
     private Label clientInfoLabel;
 
     @FXML
@@ -82,6 +87,8 @@ public class HomeController{
     @FXML
     private Button sendButton;
 
+    @FXML
+    private Button tutorial;
     @FXML
     private VBox messageContainer; // VBox để chứa các tin nhắn
 
@@ -289,6 +296,7 @@ public class HomeController{
 //        System.out.println("Send chat: " + chatMessage);
         addMessage("You: " + chatMessage);
        socketHandle.write("chat-server," + chatMessage);
+       socketHandle.saveMessageToFile("You: " + chatMessage);
     }
 
     private void findMatchButtonClicked()
@@ -429,5 +437,68 @@ public class HomeController{
         Platform.runLater(() -> { // Chạy trong luồng FX
             controller.loadData(matchHistories);
         });
+    }
+    public void handleChat()
+    {
+        Platform.runLater(() -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/matchinggameclient/Chatting.fxml"));
+                Parent root = loader.load();
+                ChattingController chattingController = loader.getController();
+                ArrayList<User> chattingList = new ArrayList<>();
+                for (User u : playerList) {
+                    if (u.getID() != client.getID()) {
+                        chattingList.add(u);
+                    }
+                }
+                socketHandle.write("get-last-message," + client.getID());
+                // lam sao de doi den khi no nhan duoc message return get-last-message ?
+
+                chattingController.loadData(this.client, chattingList );
+
+
+                // Wait for the response
+//                latch.await(); // This will block until latch.countDown() is called
+
+                Stage stage = (Stage) clientChat.getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+    public void handletutorial()
+    {
+        Platform.runLater(() -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/matchinggameclient/tutorial.fxml"));
+                Parent root = loader.load();
+                Stage stage = (Stage) tutorial.getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+    public List<String> loadMessagesFromFile() {
+        List<String> messages = new ArrayList<>();
+        String file = "src/main/java/org/example/matchinggameclient/data/" + client.getID() + ".txt";
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                messages.add(line); // Thêm mỗi dòng vào danh sách messages
+            }
+        } catch (IOException e) {
+            e.printStackTrace(); // Xử lý ngoại lệ nếu có lỗi
+        }
+        return messages; // Trả về danh sách các thông điệp
+    }
+    public void loadMessage()
+    {
+        for (String s : loadMessagesFromFile()) {
+            addMessage(s);
+        }
     }
 }

@@ -1,9 +1,6 @@
 package org.example.matchinggameclient.controller;
 
-import org.example.matchinggameclient.model.Card;
-import org.example.matchinggameclient.model.Invitation;
-import org.example.matchinggameclient.model.MatchHistory;
-import org.example.matchinggameclient.model.User;
+import org.example.matchinggameclient.model.*;
 
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +12,7 @@ import javax.swing.*;
 import java.io.*;
 import java.net.Socket;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +25,7 @@ public class SocketHandle implements Runnable {
     private SignupController signupController;
     private HomeController homeController;
     private GameController gameController;
+    private ChattingController chattingController;
     private MatchHistoryController matchHistoryController;
     public User client = new User();
     public ArrayList<User> userList = new ArrayList<>();
@@ -75,7 +74,9 @@ public class SocketHandle implements Runnable {
         this.matchHistoryController = matchHistoryController; // Set the HomeController
     }
 
-
+    public void setChattingController(ChattingController chattingController) {
+        this.chattingController = chattingController; // Set the ChattingController
+    }
     public void write(String message) throws IOException {
         if (outputWriter != null) {
             outputWriter.write(message);
@@ -101,6 +102,7 @@ public class SocketHandle implements Runnable {
                 loginController.setTextWrongUser();
                 break;
             case "login-success":
+                clearFile();
                 handleLoginSuccess(messageSplit);
                 break;
             case "dupplicate-login":
@@ -110,18 +112,29 @@ public class SocketHandle implements Runnable {
                 handleRankCharts(messageSplit);
                 break;
             case "duplicate-username":
+                clearFile();
                 signupController.setDuplicateUsername();
                 break;
             case "back-to-login":
+                clearFile();
                 homeController.backToLogin();
                 break;
             case "chat-server":
                 homeController.addMessage(messageSplit[1]);
-                System.out.println(messageSplit[1]);
+                saveMessageToFile(messageSplit[1]);
+                System.out.println(message);
                 if (messageSplit[1].contains("online") || messageSplit[1].contains("offline")) {
                     System.out.println("Cập nhật danh sách người chơi");
                     write("get-rank-charts");
                     request = "update-list";
+                }
+                String temp = messageSplit[1];
+                String[] tempSplit = temp.split(":", 2);
+                String username = tempSplit[0];
+                if (tempSplit[1].contains("online") && chattingController != null) {
+                    chattingController.updateOnlineStatus(username, true);
+                } else if (tempSplit[1].contains("offline") && chattingController != null) {
+                    chattingController.updateOnlineStatus(username, false);
                 }
                 break;
             case "add-invitation":
@@ -230,6 +243,22 @@ public class SocketHandle implements Runnable {
             case "home-to-history-success":
                 this.request = "history";
                 write("get-rank-charts");
+                break;
+            case "receive-message-from-user":
+                String[] messageSplit2 = message.split(",", 4);
+                String type = messageSplit2[1];
+                int senderId = Integer.parseInt(messageSplit2[2]);
+                String messageContent = messageSplit2[3];
+                String stringTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+                chattingController.updateReceiveChat(type, senderId, messageContent, stringTime);
+
+            case "return-get-list-message":
+                chattingController.updateChatting(messageSplit);
+                break;
+            case "return-get-last-message":
+                handleLastMess(messageSplit);
+                chattingController.loadChatItems(chattingController.latestMessages);
+                break;
             default:
                 System.out.println("Unknown message: " + message);
                 break;
@@ -356,4 +385,48 @@ public class SocketHandle implements Runnable {
             invitations.add(inv); // Add invitation to the list
         }
     }
+    private void handleLastMess(String[] messageSplit) {
+        chattingController.latestMessages = new ArrayList<>();
+        for (int i = 1; i < messageSplit.length; i += 6) {
+            if (i + 5 < messageSplit.length) {
+                Message message = createMessFromMessage(messageSplit, i);
+                chattingController.latestMessages.add(message); // Add user to user list
+            }
+        }
+
+    }
+
+    private Message createMessFromMessage (String[] messageSplit, int index) {
+        return new Message(
+                Integer.parseInt(messageSplit[index]),
+                Integer.parseInt(messageSplit[index + 1]),
+                Integer.parseInt(messageSplit[index + 2]),
+                messageSplit[index + 3],
+                LocalDateTime.parse(messageSplit[index + 4]),
+                messageSplit[index + 5]
+        );
+
+
+    }
+    public void saveMessageToFile(String message) {
+        String fileName = "src/main/java/org/example/matchinggameclient/data/" + client.getID() + ".txt";
+        System.out.println("Saving message to file: " + fileName);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))) {
+            writer.write(message);
+            writer.newLine(); // Thêm dòng mới sau mỗi thông điệp
+        } catch (IOException e) {
+            e.printStackTrace(); // Xử lý ngoại lệ nếu có lỗi
+        }
+    }
+
+    public void clearFile() {
+        String fileName = "src/main/java/org/example/matchinggameclient/data/" + client.getID() + ".txt";
+
+        try (FileWriter writer = new FileWriter(fileName, false)) {
+            writer.write(""); // Ghi một chuỗi rỗng để xóa nội dung file
+        } catch (IOException e) {
+            e.printStackTrace(); // Xử lý ngoại lệ nếu có lỗi
+        }
+    }
+
 }
