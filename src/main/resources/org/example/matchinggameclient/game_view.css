@@ -59,9 +59,23 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0); /* Thêm hiệu ứng bóng */
 }
 
+/*.button-card {*/
+/*    -fx-min-width: 96;*/
+/*    -fx-min-height: 144;*/
+/*    -fx-background-radius: 10;*/
+/*    -fx-background-color: #f2f3e3 ;*/
+/*    -fx-background-image: url(img/back.jpg);*/
+/*    -fx-background-size: contain;*/
+/*    -fx-background-repeat: no-repeat;*/
+/*    -fx-background-position: center;*/
+/*    -fx-font-size: 28px;*/
+/*    -fx-text-fill: white;*/
+/*}*/
 .button-card {
     -fx-min-width: 96;
     -fx-min-height: 144;
+    -fx-max-width: 96;
+    -fx-max-height: 144;
     -fx-background-radius: 10;
     -fx-background-color: #f2f3e3 ;
     -fx-background-image: url(img/back.jpg);
@@ -71,7 +85,6 @@
     -fx-font-size: 28px;
     -fx-text-fill: white;
 }
-
 .button-card:hover {
     -fx-scale-x: 1.1;
     -fx-scale-y: 1.1;

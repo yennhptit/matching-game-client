@@ -5,33 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10c63515-92fe-4574-9c41-729422387f1f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/ChatItemController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/ChattingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/TutorialController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/model/ChatItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/model/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/ChatItem.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/Chatting.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/chatting-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/795ee8df914b842e79476ef32ae6dbbc.png_wh300.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/9-anh-dai-dien-trang-inkythuatso-03-15-27-03.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/clip.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/home.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/images.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/kinh-lup.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/magnifying-glass-icon-search-icon-justice-elements-icon-K6qmmzMy_t.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/png-clipart-magnifying-glass-computer-icons-magnifying-glass-glass-desktop-wallpaper-thumbnail.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/pngtree-magnifying-glass-icon-png-image_2493424.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/pngtree-white-border-magnifying-glass-background-png-image_2334576.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img/send-icon-icon-md.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/tutorial.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/SocketHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/SocketHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/Home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/data/16.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/data/16.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/game_view.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/game_view.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,9 +53,9 @@
     "Application.Unnamed.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "u2",
+    "git-widget-placeholder": "yen0511",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/ltm_client/src/main/resources/org/example/matchinggameclient/img",
+    "last_opened_file_path": "E:/ltm-server",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

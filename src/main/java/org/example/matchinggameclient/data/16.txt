@@ -1,9 +1,2 @@
 abc1: đã offline
 abc1: đang online
-abc1: đã offline
-abc1: đang online
-abc1: rt
-abc1: đã offline
-abc1: đang online
-abc1: đã offline
-abc1: đang online
