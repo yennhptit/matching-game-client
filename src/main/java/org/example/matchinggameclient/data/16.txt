@@ -1,2 +1,2 @@
-abc1: đã offline
-abc1: đang online
+You: 123,456
+Server : ok

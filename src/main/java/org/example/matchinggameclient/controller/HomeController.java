@@ -175,6 +175,7 @@ public class HomeController{
         setClient(clientId);
         updatePlayerList();
         updateInvitationList();
+        loadMessage();
 //        updateChatServerContent();
     }
     

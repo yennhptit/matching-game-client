@@ -64,7 +64,6 @@ public class TutorialController {
                 ArrayList<User> playerList = socketHandle.userList;
 
                 homeController.loadData(clientId, invitationList, playerList, "");
-                homeController.loadMessage();
 
                 // Cập nhật giai điệu và ẩn cảnh hiện tại
                 Stage stage = (Stage) homeBtn.getScene().getWindow();

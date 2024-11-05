@@ -37,7 +37,7 @@ public class SocketHandle implements Runnable {
     @Override
     public void run() {
         try {
-            socketOfClient = new Socket("127.0.0.1", 7777);
+            socketOfClient = new Socket("26.150.7.239", 7777);
             outputWriter = new BufferedWriter(new OutputStreamWriter(socketOfClient.getOutputStream()));
             BufferedReader inputReader = new BufferedReader(new InputStreamReader(socketOfClient.getInputStream()));
             String message;
@@ -102,7 +102,7 @@ public class SocketHandle implements Runnable {
                 loginController.setTextWrongUser();
                 break;
             case "login-success":
-                clearFile();
+
                 handleLoginSuccess(messageSplit);
                 break;
             case "dupplicate-login":
@@ -282,6 +282,7 @@ public class SocketHandle implements Runnable {
         if (client != null) {
             System.out.println(client.toString());
         }
+        clearFile();
         write("get-rank-charts"); // Request rank charts after login success
     }
 
