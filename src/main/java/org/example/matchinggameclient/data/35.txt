@@ -1,0 +1,10 @@
+You: test,1234,5678
+You: abc, 123, 456
+You: ab, ae, nn
+thuha: abc
+abc: abc
+abc: hai
+thuha: hello
+abc: hiiii
+You: mn nhận được ko
+abc: đã offline
