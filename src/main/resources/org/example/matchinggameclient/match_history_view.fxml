@@ -19,7 +19,7 @@
                 <Label fx:id="userNameLabel" layoutX="10" layoutY="14" text="PlayerName" />
                 <Label fx:id="userStarsLabel" layoutX="110" layoutY="14" text="★ 120" />
                 <Button fx:id="homeButton" layoutX="1000" layoutY="10" text="Home" />
-                <Button fx:id="logoutButton" layoutX="1080" layoutY="10" text="Logout" />
+<!--                <Button fx:id="logoutButton" layoutX="1080" layoutY="10" text="Logout" />-->
             </children>
         </AnchorPane>
         <!-- Nút mở popup thêm vào Navbar -->
@@ -38,8 +38,12 @@
                 <ScrollPane hbarPolicy="NEVER" vbarPolicy="NEVER" pannable="false">
                     <TableView fx:id="matchHistoryTable" prefWidth="903" prefHeight="900" tableMenuButtonVisible="false" styleClass="table">
                         <columns>
-                            <TableColumn fx:id="userIdColumn" text="User ID" prefWidth="150" />
+                            <TableColumn fx:id="sttColumn" text="STT" prefWidth="50" />
+
+
                             <TableColumn fx:id="matchIdColumn" text="Match ID" prefWidth="150" />
+                            <TableColumn fx:id="userIdColumn" text="User ID" prefWidth="150" />
+
                             <TableColumn fx:id="resultColumn" text="Result" prefWidth="150" />
                             <TableColumn fx:id="pointsEarnedColumn" text="Points Earned" prefWidth="150" />
                             <TableColumn fx:id="createdAtColumn" text="Created At" prefWidth="200" />
