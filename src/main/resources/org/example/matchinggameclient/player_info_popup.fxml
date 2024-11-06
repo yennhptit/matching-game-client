@@ -13,7 +13,7 @@
 
         <!-- Player Information -->
         <VBox spacing="5" alignment="CENTER_LEFT" >
-            <Label fx:id="rankLabel" text="Rank: 5" />
+<!--            <Label fx:id="rankLabel" text="Rank: 5" />-->
             <Label fx:id="matchesPlayedLabel" text="Matches Played: 50" />
             <Label fx:id="matchesWonLabel" text="Wins: 30" />
             <Label fx:id="matchesLostLabel" text="Losses: 15" />

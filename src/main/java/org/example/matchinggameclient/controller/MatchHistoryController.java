@@ -306,27 +306,5 @@ public class MatchHistoryController implements Initializable {
     }
 
 
-    //popup
-//    @FXML
-//    private void showPlayerInfoPopup() {
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/demo1/player_info_popup.fxml"));
-//            Parent root = loader.load();
-//
-//            // Lấy dữ liệu người chơi từ server và truyền vào Controller của popup
-//            PlayerInfoController controller = loader.getController();
-//            controller.setPlayerInfo("PlayerName", 120, 5, 50, 30, 15, 5);
-//
-//            // Tạo và hiển thị popup
-//            Stage popupStage = new Stage();
-//            popupStage.initModality(Modality.APPLICATION_MODAL);
-//            popupStage.setTitle("Player Information");
-//
-//            Scene scene = new Scene(root, 300, 200); // Set kích thước popup
-//            popupStage.setScene(scene);
-//            popupStage.showAndWait();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+
 }

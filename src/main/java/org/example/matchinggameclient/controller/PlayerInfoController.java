@@ -21,11 +21,11 @@ public class PlayerInfoController {
     @FXML
     private Label matchesDrawnLabel;
 
-    public void setPlayerInfo(String name, int stars, int rank, int matchesPlayed, int matchesWon, int matchesLost, int matchesDrawn) {
+    public void setPlayerInfo(String name, String stars, String matchesWon, String matchesLost, String matchesDrawn) {
         nameLabel.setText(name);
         starsLabel.setText("Stars: " + stars);
-        rankLabel.setText("Rank: " + rank);
-        matchesPlayedLabel.setText("Matches Played: " + matchesPlayed);
+//        rankLabel.setText("Rank: " + rank);
+        matchesPlayedLabel.setText("Matches Played: " + (Long.parseLong(matchesWon) + Long.parseLong(matchesLost)+ Long.parseLong(matchesDrawn)) );
         matchesWonLabel.setText("Wins: " + matchesWon);
         matchesLostLabel.setText("Losses: " + matchesLost);
         matchesDrawnLabel.setText("Draws: " + matchesDrawn);

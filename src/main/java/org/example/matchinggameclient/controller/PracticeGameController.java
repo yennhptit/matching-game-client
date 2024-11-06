@@ -6,6 +6,9 @@ import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -13,10 +16,15 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.example.matchinggameclient.model.Card;
+import org.example.matchinggameclient.controller.MockWebSocketClient1;
+import org.example.matchinggameclient.model.Invitation;
+import org.example.matchinggameclient.model.User;
 
-
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -36,15 +44,17 @@ public class PracticeGameController {
     private List<Card> cards;
     private Button firstCard = null;
     private Button secondCard = null;
-    private MockWebSocketClient1 mockClient = new MockWebSocketClient1();
+    private MockWebSocketClient1 mockClient ;
     private Timeline timer;
 
     public void initialize() {
         usernameLabel.setText("Player1");
         starsLabel.setText("Stars: ★ 5");
+        mockClient = new MockWebSocketClient1();
         setupGameBoard();
         startTimer();
         createClockBlinkEffect();
+
     }
 
     private void startTimer() {
@@ -196,7 +206,8 @@ public class PracticeGameController {
 
     @FXML
     private void handleExitAction() {
-        Platform.exit(); // Hoặc xử lý thêm nếu cần
+        Platform.exit();
+
     }
 
     @FXML

@@ -51,7 +51,6 @@ public class MockWebSocketClient1 {
 
         cards.add(new Card(10, "Card 10", "https://i.pinimg.com/564x/75/18/45/7518455d7e0310c613bb54879fd7f701.jpg"));
         cards.add(new Card(10, "Card 10", "https://i.pinimg.com/564x/75/18/45/7518455d7e0310c613bb54879fd7f701.jpg"));
-
         return cards;
     }
 

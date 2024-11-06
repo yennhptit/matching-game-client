@@ -247,7 +247,7 @@ public class HomeController{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/matchinggameclient/UserItem.fxml"));
             GridPane item = loader.load();
             UserItemController controller = loader.getController();
-            controller.init(user, socketHandle);
+            controller.init(user, client.getID(), socketHandle);
             if(user.getID() == client.getID())
             {
                 controller.hideInviteButton();
@@ -323,10 +323,17 @@ public class HomeController{
 
     public void practiceButtonClicked()
     {
-    	playModeLabel.setText("Start Practicing...");
-        cancelButton.setVisible(true);
-        findMatchButton.setDisable(true);
-        practiceButton.setDisable(true);
+        Platform.runLater(() -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/matchinggameclient/practice_view.fxml"));
+                Parent root = loader.load();
+                Stage stage = (Stage) tutorial.getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     public void cancelButtonClicked()

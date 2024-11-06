@@ -31,15 +31,21 @@ public class UserItemController {
     private Label starsLabel;
 
     private User user;
+    private Integer clientId;
     private SocketHandle socketHandle;
 
-    public void init(User user, SocketHandle socketHandle)
+    public void init(User user, Integer clientId, SocketHandle socketHandle)
     {
         this.user = user;
         this.socketHandle = socketHandle;
+        this.clientId = clientId;
 
         historyButton.setOnAction(event -> {
-            historyButtonClicked();
+            try {
+                historyButtonClicked();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
 
         inviteButton.setOnAction(event -> {
@@ -56,28 +62,10 @@ public class UserItemController {
         starsLabel.setText("" + user.getStar());
     }
 
-    private void historyButtonClicked()
-    {
+    private void historyButtonClicked() throws IOException {
         System.out.println("Show history of " + user.getUsername());
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/matchinggameclient/player_info_popup.fxml"));
-            Parent root = loader.load();
+        socketHandle.write("show-history-popup,"+ clientId + "," +user.getID() );
 
-            // Lấy dữ liệu người chơi từ server và truyền vào Controller của popup
-            PlayerInfoController controller = loader.getController();
-            controller.setPlayerInfo("PlayerName", 120, 5, 50, 30, 15, 5);
-
-            // Tạo và hiển thị popup
-            Stage popupStage = new Stage();
-            popupStage.initModality(Modality.APPLICATION_MODAL);
-            popupStage.setTitle("Player Information");
-
-            Scene scene = new Scene(root, 300, 200); // Set kích thước popup
-            popupStage.setScene(scene);
-            popupStage.showAndWait();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     private void inviteButtonClicked()
