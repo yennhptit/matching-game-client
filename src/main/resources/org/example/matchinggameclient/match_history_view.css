@@ -1,29 +1,4 @@
-.navbar {
-    -fx-background-color: #1a5e47;
-    -fx-padding: 10;
-    -fx-alignment: center-left;
-}
 
-#userNameLabel, #userStarsLabel {
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-}
-
-#homeButton {
-    -fx-background-color: #ff801f;
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-cursor: hand;
-}
-#logoutButton{
-    -fx-background-color: #c90008;
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-cursor: hand;
-}
-#homeButton:hover, #logoutButton:hover {
-    -fx-background-color: #d98c34;
-}
 
 /* Table styling for different match results */
 .table-row-cell:filled:selected {

@@ -287,7 +287,12 @@ public class HomeController{
 
     private void clientHistoryButtonClicked() throws IOException {
         System.out.println("Show client history");
+        // Lấy thông tin từ đối tượng client
+        String username = client.getUsername();
+        int rank = client.getRank();
+        int stars = client.getStar();
         socketHandle.write("show-histoy," + client.getID());
+
     }
 
     private void sendButtonClicked() throws IOException {
@@ -327,6 +332,8 @@ public class HomeController{
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/matchinggameclient/practice_view.fxml"));
                 Parent root = loader.load();
+                PracticeGameController practiceGameController = loader.getController();
+                practiceGameController.setClient(client);
                 Stage stage = (Stage) tutorial.getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.show();

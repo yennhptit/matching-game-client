@@ -11,21 +11,61 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
 <AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.matchinggameclient.controller.MatchHistoryController" stylesheets="@match_history_view.css" prefWidth="1200" prefHeight="800">
     <children>
         <!-- Navbar -->
-        <AnchorPane layoutX="0" layoutY="0" prefHeight="50" prefWidth="1200" styleClass="navbar" >
-            <children>
-                <Label fx:id="userNameLabel" layoutX="10" layoutY="14" text="PlayerName" />
-                <Label fx:id="userStarsLabel" layoutX="110" layoutY="14" text="★ 120" />
-                <Button fx:id="homeButton" layoutX="1000" layoutY="10" text="Home" />
-<!--                <Button fx:id="logoutButton" layoutX="1080" layoutY="10" text="Logout" />-->
-            </children>
-        </AnchorPane>
-        <!-- Nút mở popup thêm vào Navbar -->
-        <!--        <Button fx:id="infoButton" layoutX="200" layoutY="10" text="Info" onAction="#showPlayerInfoPopup"/>-->
-        <!-- Main Content in Centered VBox -->
-        <!--        alignment="CENTER"-->
+        <BorderPane prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: #1b5e47;" BorderPane.alignment="CENTER">
+            <top>
+                <BorderPane prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: #1b5e47;" BorderPane.alignment="CENTER">
+                    <!-- Left Section -->
+                    <left>
+                        <Label fx:id="clientInfoLabel" contentDisplay="CENTER" prefHeight="66.0" prefWidth="486.0"
+                               style="-fx-text-fill: #ffffff;" text="Player: player0    Rank: #001    Stars: 100"
+                               BorderPane.alignment="CENTER">
+                            <font>
+                                <Font name="System Bold" size="22.0" />
+                            </font>
+                            <BorderPane.margin>
+                                <Insets left="20.0" />
+                            </BorderPane.margin>
+                        </Label>
+                    </left>
+
+                    <!-- Right Section -->
+                    <right>
+                        <GridPane prefHeight="49.0" prefWidth="401.0" BorderPane.alignment="CENTER">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="102.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="181.0" minWidth="10.0" prefWidth="105.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="122.0" minWidth="10.0" prefWidth="103.0" />
+                                <ColumnConstraints maxWidth="99.0" minWidth="87.0" prefWidth="95.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Button fx:id="homeButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="79.0"
+                                        style="-fx-background-color: #ff7f27; -fx-text-fill: #FFFFFF; -fx-background-radius: 10;"
+                                        text="Home" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                            <BorderPane.margin>
+                                <Insets right="21.0" />
+                            </BorderPane.margin>
+                        </GridPane>
+                    </right>
+                </BorderPane>
+            </top>
+        </BorderPane>
         <VBox spacing="10" AnchorPane.topAnchor="80" AnchorPane.bottomAnchor="30" AnchorPane.leftAnchor="150" AnchorPane.rightAnchor="150">
             <HBox spacing="10" alignment="BASELINE_RIGHT" AnchorPane.rightAnchor="50">
                 <ComboBox fx:id="filterByComboBox" promptText="Filter By" />

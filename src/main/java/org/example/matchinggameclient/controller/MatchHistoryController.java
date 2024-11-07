@@ -13,7 +13,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.example.matchinggameclient.model.Invitation;
 import org.example.matchinggameclient.model.MatchHistory;
@@ -53,7 +52,7 @@ public class MatchHistoryController implements Initializable {
     @FXML
     private Button nextPageButton; // Nút tiếp theo
     @FXML
-    private Label userNameLabel, userStarsLabel; // Thông tin người dùng
+    private Label clientInfoLabel;
     @FXML
     private Button homeButton, logoutButton; // Nút điều hướng
     @FXML
@@ -61,10 +60,11 @@ public class MatchHistoryController implements Initializable {
     @FXML
     private TableColumn<MatchHistory, Integer> sttColumn;
     private SocketHandle socketHandle;
-
+    public ArrayList<User> playerList;
     private List<MatchHistory> matchHistoryList;
-
+    private User client;
     public void loadData(List<MatchHistory> matchHistoryList) {
+
         this.matchHistoryList = matchHistoryList;
         originalData = FXCollections.observableArrayList(matchHistoryList); // Lưu trữ dữ liệu gốc
         data = FXCollections.observableArrayList(matchHistoryList);
@@ -163,40 +163,17 @@ public class MatchHistoryController implements Initializable {
             }
 
         });
-//        matchHistoryTable.setRowFactory(tv -> new TableRow<MatchHistory>() {
-//            @Override
-//            protected void updateItem(MatchHistory item, boolean empty) {
-//                super.updateItem(item, empty);
-//                if (empty || item == null) {
-//                    setStyle("");
-//                } else {
-//                    switch (item.getResult()) {
-//                        case "Win":
-//                            setStyle("-fx-background-color: #CCFFCC;");
-//                            break;
-//                        case "Lose":
-//                            setStyle("-fx-background-color: #D3D3D3;");
-//                            break;
-//                        case "Draw":
-//                            setStyle("-fx-background-color: #FFFFCC;");
-//                            break;
-//                        default:
-//                            setStyle("");
-//                            break;
-//                    }
-//                }
-//            }
-//        });
-//
-//        filterByComboBox.getItems().addAll("All", "Time", "Player", "Result");
-//
-//        searchField.textProperty().addListener((observable, oldValue, newValue) -> performSearch());
-//
-//
-//
-//        updateTableRows();
-    }
 
+    }
+    public Stage getStage()
+    {
+        return (Stage) clientInfoLabel.getScene().getWindow();
+    }
+    public void setClientInfo(User client) {
+        this.client = client; // Lưu thông tin người chơi
+        clientInfoLabel.setText(String.format("Player: %s    Rank: #%03d    Stars: %d",
+                client.getUsername(), client.getRank(), client.getStar()));
+    }
     private void performSearch() {
         String query = searchField.getText().toLowerCase();
         String filterBy = filterByComboBox.getValue();
@@ -293,7 +270,6 @@ public class MatchHistoryController implements Initializable {
             }
         });
     }
-
 
 
 }

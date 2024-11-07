@@ -39,7 +39,7 @@ public class SocketHandle implements Runnable {
     @Override
     public void run() {
         try {
-            socketOfClient = new Socket("26.250.85.6", 7777);
+            socketOfClient = new Socket("26.150.7.239", 7777);
             outputWriter = new BufferedWriter(new OutputStreamWriter(socketOfClient.getOutputStream()));
             BufferedReader inputReader = new BufferedReader(new InputStreamReader(socketOfClient.getInputStream()));
             String message;
@@ -237,7 +237,7 @@ public class SocketHandle implements Runnable {
                             throw new RuntimeException(e);
                         }
                         MatchHistoryController controller = loader.getController();
-
+                        controller.setClientInfo(client);
                         homeController.homeToHistory(getHistory(messageSplit), controller);
                         Stage stage = homeController.getStage();
                         stage.setScene(new Scene(root));

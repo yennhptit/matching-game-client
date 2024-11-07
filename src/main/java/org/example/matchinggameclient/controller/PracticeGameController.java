@@ -31,6 +31,10 @@ public class PracticeGameController {
     private Label usernameLabel, starsLabel, timeLabel, scoreLabel, pairsFlippedLabel;
     @FXML
     private Button exitButton;
+    public ArrayList<User> playerList;
+    private User client;
+    @FXML
+    private Label clientInfoLabel;
     @FXML
     private GridPane gameGrid;
     private SocketHandle socketHandle;
@@ -47,8 +51,13 @@ public class PracticeGameController {
     private Timeline timer;
 
     public void initialize() {
-        usernameLabel.setText("Player1");
-        starsLabel.setText("Stars: ★ 5");
+        if (client != null) {
+            clientInfoLabel.setText(String.format("Player: %s    Rank: #%03d    Stars: %d",
+                    client.getUsername(), client.getRank(), client.getStar()));
+        } else {
+            clientInfoLabel.setText("Player: Unknown");
+        }
+
         mockClient = new MockWebSocketClient1();
         setupGameBoard();
         startTimer();
@@ -65,7 +74,15 @@ public class PracticeGameController {
         });
 
     }
-
+    public void setClient(User client) {
+        this.client = client;
+        if (client != null) {
+            clientInfoLabel.setText(String.format("Player: %s    Rank: #%03d    Stars: %d",
+                    client.getUsername(), client.getRank(), client.getStar()));
+        } else {
+            clientInfoLabel.setText("Player: Unknown");
+        }
+    }
     private void startTimer() {
         timer = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
             if (timeLeft > 0) {
@@ -141,7 +158,22 @@ public class PracticeGameController {
             }
         }
     }
-
+    public Stage getStage()
+    {
+        return (Stage) clientInfoLabel.getScene().getWindow();
+    }
+    private void setClient(int id)
+    {
+        for(User u : playerList)
+        {
+            if(id == u.getID())
+            {
+                this.client = u;
+            }
+        }
+        clientInfoLabel.setText(String.format("Player: %s    Rank: #%03d    Stars: %d",
+                client.getUsername(), client.getRank(), client.getStar()));
+    }
 
     private void resetSelectedCards() {
         firstCard = null;

@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="10c63515-92fe-4574-9c41-729422387f1f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/MatchHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/MatchHistoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/PracticeGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/PracticeGameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/SocketHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/SocketHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/data/34.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/data/34.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/match_history_view.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/match_history_view.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/match_history_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/match_history_view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/practice_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/practice_view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -181,6 +186,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/home/HomeController.java</url>
           <line>145</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/HomeController.java</url>
+          <line>187</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
