@@ -334,7 +334,7 @@ public class SocketHandle implements Runnable {
             gameController.gameToHome(client.getID(), invitations, userList, "");
         } else if (request.equals("history")){
             matchHistoryController.historyToHome(client.getID(), invitations, userList, "");
-//            practiceGameController.handleExitAction(client.getID(), invitations, userList, "");
+            practiceGameController.practiceToHome(client.getID(), invitations, userList, "");
         }
 
     }

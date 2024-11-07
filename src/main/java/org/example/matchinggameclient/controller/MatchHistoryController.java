@@ -152,18 +152,7 @@ public class MatchHistoryController implements Initializable {
         createdAtColumn.setCellValueFactory(cellData -> new SimpleStringProperty(
                 cellData.getValue().getCreatedAt().format(dateTimeFormatter))
         );
-//        List<MatchHistory> matchHistoryList = this.matchHistoryList();
-//        originalData = FXCollections.observableArrayList(matchHistoryList); // Lưu trữ dữ liệu gốc
-//        data = FXCollections.observableArrayList(matchHistoryList);
 
-//        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-//        userIdColumn.setCellValueFactory(new PropertyValueFactory<>("userId"));
-//        matchIdColumn.setCellValueFactory(new PropertyValueFactory<>("matchId"));
-//        resultColumn.setCellValueFactory(new PropertyValueFactory<>("result"));
-//        pointsEarnedColumn.setCellValueFactory(new PropertyValueFactory<>("pointsEarned"));
-//        createdAtColumn.setCellValueFactory(cellData -> new SimpleStringProperty(
-//                cellData.getValue().getCreatedAt().format(dateTimeFormatter)));
-//        updateTableRows();
         socketHandle = SocketHandle.getInstance();
         socketHandle.setMatchHistoryController(this);
         homeButton.setOnAction(actionEvent -> {

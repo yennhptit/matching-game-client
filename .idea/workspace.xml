@@ -6,15 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="10c63515-92fe-4574-9c41-729422387f1f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/HomeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/MatchHistoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/MatchHistoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/MockWebSocketClient1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/MockWebSocketClient1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/PlayerInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/PlayerInfoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/PracticeGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/PracticeGameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/SocketHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/SocketHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/UserItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/UserItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/model/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/model/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/player_info_popup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/player_info_popup.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,6 +167,7 @@
       <workItem from="1730876696274" duration="8835000" />
       <workItem from="1730898093369" duration="2586000" />
       <workItem from="1730911978602" duration="1113000" />
+      <workItem from="1730948543233" duration="7634000" />
     </task>
     <servers />
   </component>

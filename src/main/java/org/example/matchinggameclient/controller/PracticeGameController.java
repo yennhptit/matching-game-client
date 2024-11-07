@@ -2,7 +2,6 @@ package org.example.matchinggameclient.controller;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
-import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -19,7 +18,6 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.example.matchinggameclient.model.Card;
-import org.example.matchinggameclient.controller.MockWebSocketClient1;
 import org.example.matchinggameclient.model.Invitation;
 import org.example.matchinggameclient.model.User;
 
@@ -35,6 +33,7 @@ public class PracticeGameController {
     private Button exitButton;
     @FXML
     private GridPane gameGrid;
+    private SocketHandle socketHandle;
     @FXML
     private Label opponentLabel, opponentScoreLabel;
     private int timeLeft = 300; // Thay đổi theo thời gian bạn muốn
@@ -54,6 +53,15 @@ public class PracticeGameController {
         setupGameBoard();
         startTimer();
         createClockBlinkEffect();
+        socketHandle = SocketHandle.getInstance();
+        exitButton.setOnAction(actionEvent -> {
+            try {
+                socketHandle.write("history-to-home");
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
 
     }
 
@@ -188,8 +196,13 @@ public class PracticeGameController {
                 if (response == ButtonType.OK) {
                     resetGame();
                 } else {
-                    handleExitAction();
+                    int clientId = 1; // Ví dụ giá trị clientId
+                    ArrayList<Invitation> invitationList = new ArrayList<>();
+                    ArrayList<User> playerList = new ArrayList<>();
+                    String chatServerContent = "Some chat content"; // Giá trị giả sử
+                    practiceToHome(clientId, invitationList, playerList, chatServerContent);
                 }
+
             });
         });
     }
@@ -205,8 +218,24 @@ public class PracticeGameController {
     }
 
     @FXML
-    private void handleExitAction() {
-        Platform.exit();
+    public void practiceToHome(int clientId, ArrayList<Invitation> invitationList, ArrayList<User> playerList, String chatServerContent) {
+        Platform.runLater(() -> { // Chạy trong luồng FX
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/matchinggameclient/Home.fxml"));
+                Parent root = loader.load();
+                HomeController homeController = loader.getController();
+
+                homeController.loadData(clientId, invitationList, playerList, chatServerContent);
+
+                // Cập nhật giai điệu và ẩn cảnh hiện tại
+                Stage stage = (Stage) exitButton.getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Memory Game");
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace(); // Xử lý IOException
+            }
+        });
 
     }
 
