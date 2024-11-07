@@ -36,7 +36,7 @@ public class PracticeGameController {
     private SocketHandle socketHandle;
     @FXML
     private Label opponentLabel, opponentScoreLabel;
-    private int timeLeft = 300; // Thay đổi theo thời gian bạn muốn
+    private int timeLeft = 20; // Thay đổi theo thời gian bạn muốn
     private int score = 0;
     private int pairsFlipped = 0;
 
@@ -54,9 +54,10 @@ public class PracticeGameController {
         startTimer();
         createClockBlinkEffect();
         socketHandle = SocketHandle.getInstance();
+        socketHandle.setPracticeGameController(this);
         exitButton.setOnAction(actionEvent -> {
             try {
-                socketHandle.write("history-to-home");
+                socketHandle.write("practice-to-home");
 
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -196,11 +197,11 @@ public class PracticeGameController {
                 if (response == ButtonType.OK) {
                     resetGame();
                 } else {
-                    int clientId = 1; // Ví dụ giá trị clientId
-                    ArrayList<Invitation> invitationList = new ArrayList<>();
-                    ArrayList<User> playerList = new ArrayList<>();
-                    String chatServerContent = "Some chat content"; // Giá trị giả sử
-                    practiceToHome(clientId, invitationList, playerList, chatServerContent);
+                    try {
+                        socketHandle.write("practice-to-home");
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
 
             });
@@ -208,7 +209,7 @@ public class PracticeGameController {
     }
 
     private void resetGame() {
-        timeLeft = 300; // Reset thời gian
+        timeLeft = 20; // Reset thời gian
         score = 0;
         pairsFlipped = 0;
         scoreLabel.setText("Score: " + score);
