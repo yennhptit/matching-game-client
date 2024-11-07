@@ -1,5 +1,6 @@
 package org.example.matchinggameclient.controller;
 import javafx.application.Platform;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -57,6 +58,8 @@ public class MatchHistoryController implements Initializable {
     private Button homeButton, logoutButton; // Nút điều hướng
     @FXML
     private HBox paginationBox;
+    @FXML
+    private TableColumn<MatchHistory, Integer> sttColumn;
     private SocketHandle socketHandle;
 
     private List<MatchHistory> matchHistoryList;
@@ -136,6 +139,19 @@ public class MatchHistoryController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // Cài đặt giá trị của cột STT (số thứ tự)
+        sttColumn.setCellValueFactory(cellData ->
+                new SimpleIntegerProperty(matchHistoryTable.getItems().indexOf(cellData.getValue()) + 1).asObject()
+        );
+
+        // Các cài đặt khác cho cột
+        userIdColumn.setCellValueFactory(new PropertyValueFactory<>("userId"));
+        matchIdColumn.setCellValueFactory(new PropertyValueFactory<>("matchId"));
+        resultColumn.setCellValueFactory(new PropertyValueFactory<>("result"));
+        pointsEarnedColumn.setCellValueFactory(new PropertyValueFactory<>("pointsEarned"));
+        createdAtColumn.setCellValueFactory(cellData -> new SimpleStringProperty(
+                cellData.getValue().getCreatedAt().format(dateTimeFormatter))
+        );
 //        List<MatchHistory> matchHistoryList = this.matchHistoryList();
 //        originalData = FXCollections.observableArrayList(matchHistoryList); // Lưu trữ dữ liệu gốc
 //        data = FXCollections.observableArrayList(matchHistoryList);
@@ -290,27 +306,5 @@ public class MatchHistoryController implements Initializable {
     }
 
 
-    //popup
-//    @FXML
-//    private void showPlayerInfoPopup() {
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/demo1/player_info_popup.fxml"));
-//            Parent root = loader.load();
-//
-//            // Lấy dữ liệu người chơi từ server và truyền vào Controller của popup
-//            PlayerInfoController controller = loader.getController();
-//            controller.setPlayerInfo("PlayerName", 120, 5, 50, 30, 15, 5);
-//
-//            // Tạo và hiển thị popup
-//            Stage popupStage = new Stage();
-//            popupStage.initModality(Modality.APPLICATION_MODAL);
-//            popupStage.setTitle("Player Information");
-//
-//            Scene scene = new Scene(root, 300, 200); // Set kích thước popup
-//            popupStage.setScene(scene);
-//            popupStage.showAndWait();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+
 }

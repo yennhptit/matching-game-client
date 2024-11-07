@@ -1,0 +1,15 @@
+qwer: đã offline
+abc: đã offline
+abc: đang online
+qwer: đang online
+qwer: test
+qwer: abc
+qwer: ab
+You: abc
+abc: abc
+abc: hai
+You: hello
+abc: hiiii
+qwer: mn nhận được ko
+abc: đã offline
+qwer: đã offline

@@ -1,0 +1,28 @@
+/* Popup container styling */
+.popup-container {
+    -fx-padding: 10;
+    -fx-background-color: #dedede;
+    /*-fx-border-color: #333;*/
+    /*-fx-border-radius: 10;*/
+    /*-fx-background-radius: 10;*/
+}
+
+/* Navbar styling with larger text */
+.popup-header {
+    -fx-font-size: 20px; /* Increase font size */
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+    -fx-background-color: #1a5e47
+}
+
+#nameLabel, #starsLabel {
+    /*-fx-padding: 10;*/
+    -fx-text-fill: #fbfffd; /* Custom color for name and stars */
+}
+
+/* Styling for other labels in the popup */
+#rankLabel, #matchesPlayedLabel, #matchesWonLabel, #matchesLostLabel, #matchesDrawnLabel {
+
+    -fx-font-size: 16px;
+    -fx-text-fill: #555;
+}

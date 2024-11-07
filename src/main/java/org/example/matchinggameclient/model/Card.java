@@ -6,7 +6,10 @@ public class Card {
 
     private String image;
 
-    public Card() {}
+    public Card(int i, String s, String url) {
+        this.id = i;
+        this.image = url;
+    }
 
     public Card(int id, String image) {
         this.id = id;

@@ -1,5 +1,6 @@
 package org.example.matchinggameclient.controller;
 
+import javafx.stage.Modality;
 import org.example.matchinggameclient.model.*;
 
 import javafx.application.Platform;
@@ -27,6 +28,7 @@ public class SocketHandle implements Runnable {
     private GameController gameController;
     private ChattingController chattingController;
     private MatchHistoryController matchHistoryController;
+    private PracticeGameController practiceGameController;
     public User client = new User();
     public ArrayList<User> userList = new ArrayList<>();
     public final ArrayList<Invitation> invitations = new ArrayList<>();
@@ -37,7 +39,7 @@ public class SocketHandle implements Runnable {
     @Override
     public void run() {
         try {
-            socketOfClient = new Socket("127.0.0.1", 7777);
+            socketOfClient = new Socket("26.250.85.6", 7777);
             outputWriter = new BufferedWriter(new OutputStreamWriter(socketOfClient.getOutputStream()));
             BufferedReader inputReader = new BufferedReader(new InputStreamReader(socketOfClient.getInputStream()));
             String message;
@@ -244,6 +246,29 @@ public class SocketHandle implements Runnable {
                 this.request = "history";
                 write("get-rank-charts");
                 break;
+            case "get-history-popup":
+                Platform.runLater(() -> {
+                    homeController.cancelButtonClicked();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/matchinggameclient/player_info_popup.fxml"));
+                    Parent root = null;
+                    try {
+                        root = loader.load();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                    PlayerInfoController controller = loader.getController();
+
+                    controller.setPlayerInfo(messageSplit[3],messageSplit[4],messageSplit[5],messageSplit[6],messageSplit[7]);
+
+                    Stage popupStage = new Stage();
+                    popupStage.initModality(Modality.APPLICATION_MODAL);
+                    popupStage.setTitle("Player Information");
+
+                    Scene scene = new Scene(root, 300, 200); // Set kích thước popup
+                    popupStage.setScene(scene);
+                    popupStage.showAndWait();
+                });
+                break;
             case "receive-message-from-user":
                 String[] messageSplit2 = message.split(",", 4);
                 String type = messageSplit2[1];
@@ -310,6 +335,7 @@ public class SocketHandle implements Runnable {
             gameController.gameToHome(client.getID(), invitations, userList, "");
         } else if (request.equals("history")){
             matchHistoryController.historyToHome(client.getID(), invitations, userList, "");
+//            practiceGameController.handleExitAction(client.getID(), invitations, userList, "");
         }
 
     }
