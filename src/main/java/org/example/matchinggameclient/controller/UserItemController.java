@@ -70,4 +70,14 @@ public class UserItemController {
     {
         inviteButton.setVisible(false);
     }
+    
+    public void enableInviteButton()
+    {
+    	inviteButton.setDisable(false);
+    }
+    
+    public void disableInviteButton()
+    {
+    	inviteButton.setDisable(true);
+    }
 }

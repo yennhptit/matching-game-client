@@ -96,6 +96,7 @@ public class HomeController{
 
     private User client;
     private ArrayList<Invitation> invitationList;
+    private ArrayList<UserItemController> userItemControllerList;
     public ArrayList<User> playerList;
     private String chatServerContent;
     
@@ -105,6 +106,7 @@ public class HomeController{
     @FXML
     private void initialize()
     {
+    	userItemControllerList = new ArrayList<>();
         socketHandle = SocketHandle.getInstance(); // Pass the current controller as the message handler
         socketHandle.setHomeController(this);
 //        new Thread(socketHandle).start(); // Start the socket communication in a separate thread
@@ -204,6 +206,7 @@ public class HomeController{
         String searchText = searchTextField.getText();
         int filter = searchFilterComboBox.getSelectionModel().getSelectedIndex();
         Platform.runLater(() -> {
+        	userItemControllerList.clear();
             playerListContent.getChildren().clear();
             System.out.println("Player list updated: " + playerListContent.getChildren().size());
             System.out.println(playerList.size());
@@ -249,6 +252,7 @@ public class HomeController{
             GridPane item = loader.load();
             UserItemController controller = loader.getController();
             controller.init(user, socketHandle);
+            userItemControllerList.add(controller);
             if(user.getID() == client.getID())
             {
                 controller.hideInviteButton();
@@ -302,6 +306,10 @@ public class HomeController{
 
     private void findMatchButtonClicked()
     {
+    	for(UserItemController c : userItemControllerList)
+    	{
+    		c.disableInviteButton();
+    	}
     	invitationsContent.setVisible(false);
     	try {
 			socketHandle.write("start-finding-match");
@@ -332,6 +340,10 @@ public class HomeController{
 
     public void cancelButtonClicked()
     {
+    	for(UserItemController c : userItemControllerList)
+    	{
+    		c.enableInviteButton();
+    	}
     	try {
 			socketHandle.write("cancel-finding-match");
 		} catch (IOException e) {
