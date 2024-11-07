@@ -76,6 +76,10 @@ public class SocketHandle implements Runnable {
         this.matchHistoryController = matchHistoryController; // Set the HomeController
     }
 
+    public void setPracticeGameController(PracticeGameController practiceGameController) {
+        this.practiceGameController = practiceGameController;
+    }
+
     public void setChattingController(ChattingController chattingController) {
         this.chattingController = chattingController; // Set the ChattingController
     }
@@ -246,6 +250,10 @@ public class SocketHandle implements Runnable {
                 this.request = "history";
                 write("get-rank-charts");
                 break;
+            case "practice-to-home-success":
+                this.request = "practice";
+                write("get-rank-charts");
+                break;
             case "get-history-popup":
                 Platform.runLater(() -> {
                     homeController.cancelButtonClicked();
@@ -335,7 +343,8 @@ public class SocketHandle implements Runnable {
             gameController.gameToHome(client.getID(), invitations, userList, "");
         } else if (request.equals("history")){
             matchHistoryController.historyToHome(client.getID(), invitations, userList, "");
-//            practiceGameController.handleExitAction(client.getID(), invitations, userList, "");
+        }else if (request.equals("practice")){
+            practiceGameController.practiceToHome(client.getID(), invitations, userList, "");
         }
 
     }

@@ -11,7 +11,7 @@
                 <children>
                     <Label fx:id="usernameLabel" layoutX="10" layoutY="14" text="PlayerName" styleClass="navbar-item"/>
                     <Label fx:id="starsLabel" layoutX="110" layoutY="14" text="★ 120" styleClass="navbar-item"/>
-                    <Button fx:id="exitButton" layoutX="1100" layoutY="10" text="Exit" styleClass="navbar-button" onAction="#handleExitAction"/>
+                    <Button fx:id="exitButton" layoutX="1100" layoutY="10" text="Exit" styleClass="navbar-button"/>
                 </children>
             </AnchorPane>
         </top>
