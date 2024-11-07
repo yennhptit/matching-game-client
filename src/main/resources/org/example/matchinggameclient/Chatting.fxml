@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.matchinggameclient.controller.ChattingController">
+   <left>
+      <HBox prefHeight="800.0" prefWidth="439.0" styleClass="gray-background" stylesheets="@chatting-style.css" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="92.0" styleClass="dark-grey-background" stylesheets="@chatting-style.css">
+               <children>
+                  <Pane prefHeight="518.0" prefWidth="139.0" VBox.vgrow="ALWAYS" />
+                  <Pane prefHeight="481.0" prefWidth="101.0" />
+                  <ImageView fx:id="backToHome" fitHeight="48.0" fitWidth="38.0" onMouseClicked="#handleBackToHomeClick" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/home.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets bottom="30.0" top="20.0" />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+               <opaqueInsets>
+                  <Insets top="20.0" />
+               </opaqueInsets>
+            </VBox>
+            <VBox prefHeight="800.0" prefWidth="355.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="44.0" prefWidth="280.0" stylesheets="@chatting-style.css">
+                     <children>
+                        <ImageView fx:id="findBtn" fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/kinh-lup.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ImageView>
+                        <TextField fx:id="seachText" prefHeight="39.0" prefWidth="243.0" promptText="Search" styleClass="transparent-background" stylesheets="@chatting-style.css">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="30.0" right="30.0" top="20.0" />
+                     </VBox.margin>
+                     <styleClass>
+                        <String fx:value="dark-grey-background" />
+                        <String fx:value="radius" />
+                     </styleClass>
+                  </HBox>
+                  <ScrollPane hbarPolicy="NEVER" prefHeight="724.0" prefWidth="350.0" stylesheets="@chatting-style.css">
+                    <content>
+                       <VBox fx:id="listUser" prefHeight="714.0" prefWidth="351.0" spacing="20.0" styleClass="gray-background" stylesheets="@chatting-style.css">
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding></VBox>
+                    </content>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                     <styleClass>
+                        <String fx:value="gray-background" />
+                        <String fx:value="dark-grey-background" />
+                     </styleClass>
+                  </ScrollPane>
+               </children>
+               <HBox.margin>
+                  <Insets left="3.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="90.0" prefWidth="761.0">
+               <children>
+                  <Label fx:id="user2name" prefHeight="36.0" prefWidth="55.0" text="Abc" textFill="#9da7a7">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Circle fx:id="user2status" fill="#50c984" radius="7.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin></Circle>
+                  <Label fx:id="user2statusLabel" prefHeight="27.0" prefWidth="59.0" text="Online" textFill="#9da7a7">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" prefHeight="838.0" prefWidth="761.0" styleClass="gray-background" stylesheets="@chatting-style.css">
+               <content>
+                  <VBox fx:id="vBoxContent" prefHeight="701.0" prefWidth="758.0">
+                     <padding>
+                        <Insets bottom="20.0" />
+                     </padding></VBox>
+               </content>
+            </ScrollPane>
+            <HBox alignment="CENTER_LEFT" prefHeight="196.0" prefWidth="761.0">
+               <children>
+                  <ImageView fx:id="clip" fitHeight="36.0" fitWidth="42.0" onMouseClicked="#handleClipClick" pickOnBounds="true" preserveRatio="true">
+<!--                  <ImageView fx:id="clip" fitHeight="36.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">-->
+                     <image>
+                        <Image url="@img/clip.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="15.0" right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <TextField fx:id="message" prefHeight="41.0" prefWidth="655.0" promptText="Nhập tin nhắn..." styleClass="radius" stylesheets="@chatting-style.css">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <ImageView fx:id="send" fitHeight="36.0" fitWidth="42.0" onMouseClicked="#handleSendClick" pickOnBounds="true" preserveRatio="true">
+
+                  <image>
+                        <Image url="@img/send-icon-icon-md.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="15.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

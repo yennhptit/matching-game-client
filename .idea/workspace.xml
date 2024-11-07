@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="10c63515-92fe-4574-9c41-729422387f1f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/ChattingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/ChattingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/SocketHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/SocketHandle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/TutorialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/controller/TutorialController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/data/16.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/data/16.txt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2nsXKBqR9i4eXEJe0WrNWcl8upk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.HelloApplication.executor": "Run",
+    "Application.HomeRun.executor": "Run",
+    "Application.MainApp.executor": "Run",
+    "Application.Unnamed.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "yen0511",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "E:/ltm-server",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\ltm_client\src\main\resources\org\example\matchinggameclient\img" />
+      <recent name="E:\ltm_client\src\main\resources\org\example\matchinggameclient" />
+      <recent name="E:\ltm_client\src\main\java\org\example\matchinggameclient" />
+      <recent name="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient" />
+      <recent name="E:\matching-game-client\src\main\resources\org\example\matchinggameclient\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\ltm_client\src\main\java\org\example\matchinggameclient" />
+      <recent name="$PROJECT_DIR$/src/main/resources/org/example/matchinggameclient/img" />
+      <recent name="E:\matching-game-client\src\main\resources\org\example\matchinggameclient" />
+      <recent name="E:\matching-game-client\src\main\java\org\example\matchinggameclient\img" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.example.matchinggameclient" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.matchinggameclient.controller" />
+      <recent name="org.example.matchinggameclient.model" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.MainApp">
+    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.matchinggameclient.HelloApplication" />
+      <module name="matching-game-client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.matchinggameclient.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.matchinggameclient.MainApp" />
+      <module name="matching-game-client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.matchinggameclient.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.matchinggameclient.MainApp" />
+      <module name="matching-game-client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="Application.HelloApplication" />
+      <item itemvalue="Application.MainApp" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainApp" />
+        <item itemvalue="Application.HelloApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="10c63515-92fe-4574-9c41-729422387f1f" name="Changes" comment="" />
+      <created>1729762691008</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1729762691008</updated>
+      <workItem from="1730549791585" duration="36612000" />
+      <workItem from="1730631801189" duration="30891000" />
+      <workItem from="1730699484921" duration="659000" />
+      <workItem from="1730702396832" duration="55000" />
+      <workItem from="1730718183001" duration="6411000" />
+      <workItem from="1730736641102" duration="6025000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/matchinggameclient/home/HomeController.java</url>
+          <line>145</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
