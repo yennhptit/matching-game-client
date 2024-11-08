@@ -126,9 +126,15 @@ public class SocketHandle implements Runnable {
                 homeController.backToLogin();
                 break;
             case "chat-server":
-                homeController.addMessage(messageSplit[1]);
-                saveMessageToFile(messageSplit[1]);
-                System.out.println(message);
+                String request = "";
+                for (int i = 1; i < messageSplit.length; i++) {
+                    request += messageSplit[i] + ",";
+                }
+                request = request.substring(0, request.length() - 1);
+                System.out.println("received message from server: " + request);
+                homeController.addMessage(request);
+                saveMessageToFile(request);
+//                System.out.println(message);
                 if (messageSplit[1].contains("online") || messageSplit[1].contains("offline")) {
                     System.out.println("Cập nhật danh sách người chơi");
                     write("get-rank-charts");
