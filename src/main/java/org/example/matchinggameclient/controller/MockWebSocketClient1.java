@@ -34,8 +34,8 @@ public class MockWebSocketClient1 {
         cards.add(new Card(4, "Card 4", "https://i.pinimg.com/564x/23/f0/38/23f038cc913bb02b9b58bc7d8418dd6d.jpg"));
         cards.add(new Card(4, "Card 4", "https://i.pinimg.com/564x/23/f0/38/23f038cc913bb02b9b58bc7d8418dd6d.jpg"));
 
-        cards.add(new Card(5, "Card 5", "https://i.pinimg.com/564x/30/69/1d/30691d2c1485e2c95540589722fee70b.jpg"));
-        cards.add(new Card(5, "Card 5", "https://i.pinimg.com/564x/30/69/1d/30691d2c1485e2c95540589722fee70b.jpg"));
+        cards.add(new Card(5, "Card 5", "https://i.pinimg.com/564x/20/f4/81/20f481bc69330d4a6ad45a369b08ef92.jpg"));
+        cards.add(new Card(5, "Card 5", "https://i.pinimg.com/564x/20/f4/81/20f481bc69330d4a6ad45a369b08ef92.jpg"));
 
         cards.add(new Card(6, "Card 6", "https://i.pinimg.com/564x/2d/0e/e1/2d0ee150ae5d9aa1d919f40504a35a1e.jpg"));
         cards.add(new Card(6, "Card 6", "https://i.pinimg.com/564x/2d/0e/e1/2d0ee150ae5d9aa1d919f40504a35a1e.jpg"));

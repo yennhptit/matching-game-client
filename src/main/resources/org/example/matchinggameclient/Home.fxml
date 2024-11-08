@@ -9,7 +9,7 @@
    <top>
       <BorderPane prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: #1b5e47;" BorderPane.alignment="CENTER">
          <left>
-            <Label fx:id="clientInfoLabel" contentDisplay="CENTER" prefHeight="66.0" prefWidth="486.0" style="-fx-text-fill: #ffffff;" text="Player: player0    Rank: #001    Stars: 100" BorderPane.alignment="CENTER">
+            <Label fx:id="clientInfoLabel" contentDisplay="CENTER" prefHeight="66.0" prefWidth="486.0" style="-fx-text-fill: #ffffff;" text="Player: player0    Stars: 100" BorderPane.alignment="CENTER">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>

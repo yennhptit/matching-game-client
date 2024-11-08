@@ -38,7 +38,7 @@ public class GameController {
     private GridPane gameGrid;
 
     private List<Card> cards = new ArrayList<>();
-    private int timeLeft = 60; // 5 minutes in seconds
+    private int timeLeft = 20; // 5 minutes in seconds
     private int score = 0;
     private int pairsFlipped = 0;
     private SocketHandle socketHandle;

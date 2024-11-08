@@ -39,7 +39,7 @@ public class SocketHandle implements Runnable {
     @Override
     public void run() {
         try {
-            socketOfClient = new Socket("26.150.7.239", 7777);
+            socketOfClient = new Socket("26.250.85.6", 7777);
             outputWriter = new BufferedWriter(new OutputStreamWriter(socketOfClient.getOutputStream()));
             BufferedReader inputReader = new BufferedReader(new InputStreamReader(socketOfClient.getInputStream()));
             String message;
@@ -123,17 +123,18 @@ public class SocketHandle implements Runnable {
                 break;
             case "back-to-login":
                 clearFile();
-                homeController.backToLogin();
+                if (!request.equals("close"))
+                    homeController.backToLogin();
                 break;
             case "chat-server":
-                String request = "";
+                String requestTemp = "";
                 for (int i = 1; i < messageSplit.length; i++) {
-                    request += messageSplit[i] + ",";
+                    requestTemp += messageSplit[i] + ",";
                 }
-                request = request.substring(0, request.length() - 1);
-                System.out.println("received message from server: " + request);
-                homeController.addMessage(request);
-                saveMessageToFile(request);
+                requestTemp = requestTemp.substring(0, requestTemp.length() - 1);
+                System.out.println("received message from server: " + requestTemp);
+                homeController.addMessage(requestTemp);
+                saveMessageToFile(requestTemp);
 //                System.out.println(message);
                 if (messageSplit[1].contains("online") || messageSplit[1].contains("offline")) {
                     System.out.println("Cập nhật danh sách người chơi");
@@ -272,7 +273,7 @@ public class SocketHandle implements Runnable {
                     }
                     PlayerInfoController controller = loader.getController();
 
-                    controller.setPlayerInfo(messageSplit[3],messageSplit[4],messageSplit[5],messageSplit[6],messageSplit[7]);
+                    controller.setPlayerInfo(messageSplit[3],messageSplit[4],messageSplit[5],messageSplit[7],messageSplit[6]);
 
                     Stage popupStage = new Stage();
                     popupStage.initModality(Modality.APPLICATION_MODAL);
@@ -437,7 +438,15 @@ public class SocketHandle implements Runnable {
         }
 
     }
-
+    public void disconnect(){
+        try {
+            request = "close";
+            write("offline," + client.getID());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Tất cả cửa sổ đã bị đóng.");
+    }
     private Message createMessFromMessage (String[] messageSplit, int index) {
         return new Message(
                 Integer.parseInt(messageSplit[index]),

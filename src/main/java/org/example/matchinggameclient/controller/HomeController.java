@@ -196,8 +196,8 @@ public class HomeController{
                 this.client = u;
             }
         }
-        clientInfoLabel.setText(String.format("Player: %s    Rank: #%03d    Stars: %d",
-                client.getUsername(), client.getRank(), client.getStar()));
+        clientInfoLabel.setText(String.format("Player: %s    Stars: %d",
+                client.getUsername(), client.getStar()));
     }
 
     @FXML
@@ -456,7 +456,7 @@ public class HomeController{
     public void homeToHistory(List<MatchHistory> matchHistories, MatchHistoryController controller){
 
         Platform.runLater(() -> { // Chạy trong luồng FX
-            controller.loadData(matchHistories);
+            controller.loadData(matchHistories, client);
         });
     }
     public void handleChat()

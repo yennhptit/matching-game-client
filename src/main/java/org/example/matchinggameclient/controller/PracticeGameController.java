@@ -57,6 +57,7 @@ public class PracticeGameController {
         socketHandle.setPracticeGameController(this);
         exitButton.setOnAction(actionEvent -> {
             try {
+                timer.stop();
                 socketHandle.write("practice-to-home");
 
             } catch (IOException e) {
@@ -198,6 +199,7 @@ public class PracticeGameController {
                     resetGame();
                 } else {
                     try {
+                        timer.stop();
                         socketHandle.write("practice-to-home");
                     } catch (IOException e) {
                         throw new RuntimeException(e);

@@ -53,7 +53,7 @@ public class MatchHistoryController implements Initializable {
     @FXML
     private Button nextPageButton; // Nút tiếp theo
     @FXML
-    private Label userNameLabel, userStarsLabel; // Thông tin người dùng
+    private Label userNameLabel, userStarsLabel, clientInfoLabel; // Thông tin người dùng
     @FXML
     private Button homeButton, logoutButton; // Nút điều hướng
     @FXML
@@ -64,8 +64,9 @@ public class MatchHistoryController implements Initializable {
 
     private List<MatchHistory> matchHistoryList;
 
-    public void loadData(List<MatchHistory> matchHistoryList) {
+    public void loadData(List<MatchHistory> matchHistoryList, User client) {
         this.matchHistoryList = matchHistoryList;
+        clientInfoLabel.setText("Player: " + client.getUsername() + "    Stars: " + client.getStar());
         originalData = FXCollections.observableArrayList(matchHistoryList); // Lưu trữ dữ liệu gốc
         data = FXCollections.observableArrayList(matchHistoryList);
         userIdColumn.setCellValueFactory(new PropertyValueFactory<>("userId"));

@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import org.example.matchinggameclient.controller.LoginController;
+import org.example.matchinggameclient.controller.SocketHandle;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -21,6 +23,8 @@ public class MainApp extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/matchinggameclient/Login.fxml"));
         Scene scene = new Scene(loader.load());
 
+
+
         // Thiết lập tiêu đề cho cửa sổ
         primaryStage.setTitle("Memory Game");
         primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/org/example/matchinggameclient/img/logo.png")));
@@ -30,7 +34,9 @@ public class MainApp extends Application {
         // Ngăn không cho phép thay đổi kích thước cửa sổ
         primaryStage.setResizable(false);
 
-
+        primaryStage.setOnCloseRequest(event -> {
+            SocketHandle.getInstance().disconnect();
+        });
         primaryStage.show();
     }
 //    public void clearFile() {
