@@ -288,23 +288,25 @@ public class ChattingController {
 
     private void handleChatItemClick(ChatItemController chatItemController) throws IOException {
         // Nếu có một ChatItem được chọn trước đó, đặt lại màu cho nó
-        if (selectedChatItemController != null) {
-            selectedChatItemController.setSelected(false);
+        if (selectedChatItemController != null && chatItemController != selectedChatItemController) {
+            if (selectedChatItemController != null) {
+                selectedChatItemController.setSelected(false);
 
+            }
+            if (selectedChatItemController != null && selectedChatItemController.getUserID() != chatItemController.getUserID()) {
+                vBoxContent.getChildren().clear();
+            }
+
+            // Đặt ChatItem hiện tại là được chọn
+            chatItemController.setSelected(true);
+            selectedChatItemController = chatItemController; // Cập nhật ChatItem được chọn
+            socketHandle.write("get-list-message," + client.getID() + "," + selectedChatItemController.getUserID());
+
+
+            String selectedUsername = chatItemController.getUsername(); // Lấy tên người dùng từ ChatItem
+            boolean selectedIsOnline = chatItemController.isOnline(); // Lấy trạng thái online từ ChatItem
+            setUser2Info(selectedUsername, selectedIsOnline); // Cập nhật thông tin người dùng
         }
-        if (selectedChatItemController != null && selectedChatItemController.getUserID() != chatItemController.getUserID()) {
-            vBoxContent.getChildren().clear();
-        }
-
-        // Đặt ChatItem hiện tại là được chọn
-        chatItemController.setSelected(true);
-        selectedChatItemController = chatItemController; // Cập nhật ChatItem được chọn
-        socketHandle.write("get-list-message," + client.getID() + "," + selectedChatItemController.getUserID());
-
-
-        String selectedUsername = chatItemController.getUsername(); // Lấy tên người dùng từ ChatItem
-        boolean selectedIsOnline = chatItemController.isOnline(); // Lấy trạng thái online từ ChatItem
-        setUser2Info(selectedUsername, selectedIsOnline); // Cập nhật thông tin người dùng
     }
 
     public void loadData(User client, ArrayList<User> playerList) throws IOException {
